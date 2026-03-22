@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIRO Business Alliance — Document Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#0B1D51;--secondary:#C9A96E;--accent:#2E86AB;
+  --bg:#FAFBFE;--dark:#060e2e;--text:#1a1a2e;--muted:#6b7280;
+  --glass:rgba(255,255,255,0.7);--shadow:0 4px 24px rgba(11,29,81,0.08);
+  --shadow-lg:0 12px 48px rgba(11,29,81,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
+a{text-decoration:none;color:var(--accent);transition:all 0.3s ease}
+a:hover{color:var(--secondary)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{
+  min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(135deg,var(--primary) 0%,#132B6A 50%,#1a3a7a 100%);
+  color:white;position:relative;overflow:hidden;padding:80px 24px;
+}
+.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(201,169,110,0.08) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(46,134,171,0.06) 0%,transparent 70%);border-radius:50%}
+.hero-inner{position:relative;z-index:1}
+.hero .label{font-size:0.85rem;letter-spacing:3px;text-transform:uppercase;color:var(--secondary);margin-bottom:16px;font-weight:500}
+.hero h1{font-size:3.5rem;color:white;margin-bottom:12px;font-weight:800}
+.hero h1 span{color:var(--secondary)}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 24px}
+.hero .tagline{font-size:0.9rem;color:rgba(255,255,255,0.4);margin-top:8px}
+.divider{width:50px;height:3px;margin:20px auto;background:linear-gradient(90deg,var(--accent),var(--secondary));border-radius:2px}
+
+/* Language Toggle */
+.lang-toggle{display:flex;justify-content:center;gap:12px;margin:40px 0}
+.lang-btn{
+  padding:12px 32px;border-radius:8px;font-weight:600;font-size:0.95rem;
+  cursor:pointer;border:2px solid var(--primary);transition:all 0.3s ease;
+  background:white;color:var(--primary);
+}
+.lang-btn.active{background:var(--primary);color:white}
+.lang-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+/* Sections */
+.section{padding:60px 0}
+.section-dark{background:var(--primary);color:white;padding:60px 0}
+.section-dark h2{color:white}
+.section-gray{background:#f0f2f8;padding:60px 0}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header .label{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--secondary);font-weight:600;margin-bottom:12px}
+.section-header h2{font-size:2.2rem;margin-bottom:12px}
+.section-header p{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto}
+
+/* Deliverable Grid */
+.deliverables{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+
+/* Deliverable Card */
+.card{
+  background:white;border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow);transition:all 0.3s ease;
+  border:1px solid rgba(0,0,0,0.04);position:relative;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.card-badge{
+  position:absolute;top:16px;right:16px;
+  background:rgba(11,29,81,0.06);color:var(--primary);
+  padding:4px 12px;border-radius:20px;font-size:0.72rem;
+  font-weight:600;text-transform:uppercase;letter-spacing:0.5px;
+}
+.card-badge.doc{background:rgba(46,134,171,0.1);color:var(--accent)}
+.card-badge.pres{background:rgba(201,169,110,0.15);color:#8b6914}
+.card-badge.web{background:rgba(39,174,96,0.1);color:#1a8a4a}
+.card-header{
+  padding:32px 28px 20px;
+  background:linear-gradient(135deg,rgba(11,29,81,0.03),rgba(46,134,171,0.04));
+}
+.card-icon{font-size:2.2rem;margin-bottom:12px}
+.card-header h3{font-size:1.3rem;color:var(--primary);margin-bottom:6px}
+.card-header p{font-size:0.88rem;color:var(--muted);margin:0;line-height:1.5}
+.card-body{padding:20px 28px 28px}
+.card-meta{display:flex;gap:16px;margin-bottom:16px;font-size:0.8rem;color:var(--muted)}
+.card-meta span{display:flex;align-items:center;gap:4px}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;border-radius:8px;font-weight:600;
+  font-size:0.85rem;cursor:pointer;border:none;transition:all 0.3s ease;
+}
+.btn-view{background:var(--primary);color:white}
+.btn-view:hover{background:#0d2260;color:white;transform:translateY(-1px)}
+.btn-pdf{background:rgba(11,29,81,0.06);color:var(--primary);border:1px solid rgba(11,29,81,0.1)}
+.btn-pdf:hover{background:rgba(11,29,81,0.1);color:var(--primary);transform:translateY(-1px)}
+
+/* Lang content show/hide */
+.lang-content{display:none}
+.lang-content.active{display:block}
+
+/* Footer */
+.footer{background:var(--dark);color:rgba(255,255,255,0.6);padding:40px 0;text-align:center}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:white;margin-bottom:8px}
+.footer-brand span{color:var(--secondary)}
+.footer p{font-size:0.85rem;margin-bottom:4px}
+
+/* Quick links */
+.quick-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px}
+.quick-link{
+  display:flex;align-items:center;gap:8px;padding:8px 16px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;color:rgba(255,255,255,0.7);font-size:0.82rem;
+  transition:all 0.3s ease;
+}
+.quick-link:hover{background:rgba(255,255,255,0.1);color:white}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{font-size:2.4rem}
+  .deliverables{grid-template-columns:1fr}
+  .lang-toggle{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="label">Document Hub</p>
+    <h1>RI<span>RO</span></h1>
+    <div class="divider"></div>
+    <p>Bel Décor × MEZZO GRP — All alliance deliverables in one place.<br>View online or download as PDF.</p>
+    <p class="tagline">Tous les livrables de l'alliance — Consultez en ligne ou téléchargez en PDF.</p>
+  </div>
+</div>
+
+<!-- Language Toggle -->
+<div class="section" style="padding-bottom:0">
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="switchLang('en')">English</button>
+    <button class="lang-btn" onclick="switchLang('fr')">Français</button>
+  </div>
+</div>
+
+<!-- ENGLISH DELIVERABLES -->
+<div class="lang-content active" id="lang-en">
+
+  <!-- Documents -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Documents</p>
+        <h2>Strategic Documents</h2>
+        <p>Comprehensive alliance documentation — view online with print-to-PDF capability.</p>
+      </div>
+      <div class="deliverables">
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">📋</div>
+            <h3>Complete Alliance Document</h3>
+            <p>Full 10,000+ word strategic document covering all aspects of the RIRO alliance — from market analysis to exit strategy.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>871 lines</span>
+              <span>17 sections</span>
+              <span>Investor-ready</span>
+            </div>
+            <div class="card-actions">
+              <a href="en/documents/alliance-complete.html" class="btn btn-view">View Document</a>
+              <a href="en/documents/alliance-complete.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('en/documents/alliance-complete.html')">Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">📄</div>
+            <h3>Executive Summary</h3>
+            <p>Concise 2-page overview — the document you hand to an investor or banker in a 10-minute meeting.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2-3 pages</span>
+              <span>Key metrics</span>
+              <span>Quick read</span>
+            </div>
+            <div class="card-actions">
+              <a href="en/documents/executive-summary.html" class="btn btn-view">View Document</a>
+              <a href="en/documents/executive-summary.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('en/documents/executive-summary.html')">Download PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">⚖️</div>
+            <h3>Term Sheet / MOU</h3>
+            <p>Legal memorandum of understanding with 20 sections covering governance, IP, exit strategy, and dispute resolution.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>20 sections</span>
+              <span>Bilingual headers</span>
+              <span>Legal-ready</span>
+            </div>
+            <div class="card-actions">
+              <a href="en/documents/term-sheet.html" class="btn btn-view">View Document</a>
+              <a href="en/documents/term-sheet.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('en/documents/term-sheet.html')">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Presentation -->
+  <div class="section-gray">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Presentation</p>
+        <h2>Interactive Presentation</h2>
+        <p>18 glass-morphism slides — navigate with arrow keys, click, or swipe.</p>
+      </div>
+      <div class="deliverables" style="max-width:700px;margin:0 auto">
+        <div class="card">
+          <span class="card-badge pres">Presentation</span>
+          <div class="card-header" style="background:linear-gradient(135deg,rgba(11,29,81,0.08),rgba(201,169,110,0.08))">
+            <div class="card-icon">🎬</div>
+            <h3>RIRO Alliance Presentation</h3>
+            <p>Full-screen slide deck with glass-inspired design, animated charts, and keyboard navigation. Boardroom-ready.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>18 slides</span>
+              <span>Full-screen</span>
+              <span>Arrow keys / click / swipe</span>
+            </div>
+            <div class="card-actions">
+              <a href="en/presentation/index.html" class="btn btn-view" target="_blank">Launch Presentation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Website -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Website</p>
+        <h2>Corporate Website</h2>
+        <p>7-page responsive corporate site with scroll animations, counters, and premium design.</p>
+      </div>
+      <div class="deliverables" style="max-width:700px;margin:0 auto">
+        <div class="card">
+          <span class="card-badge web">Website</span>
+          <div class="card-header" style="background:linear-gradient(135deg,rgba(39,174,96,0.05),rgba(46,134,171,0.06))">
+            <div class="card-icon">🌐</div>
+            <h3>RIRO Corporate Website</h3>
+            <p>Full multi-page site: Home, About, Partners, Products, Business Plan, Governance, Contact — with responsive design and animations.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>7 pages</span>
+              <span>Responsive</span>
+              <span>Production-ready</span>
+            </div>
+            <div class="card-actions">
+              <a href="en/website/index.html" class="btn btn-view" target="_blank">Visit Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRENCH DELIVERABLES -->
+<div class="lang-content" id="lang-fr">
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Documents</p>
+        <h2>Documents Stratégiques</h2>
+        <p>Documentation complète de l'alliance — consultez en ligne avec possibilité d'export PDF.</p>
+      </div>
+      <div class="deliverables">
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">📋</div>
+            <h3>Document Complet de l'Alliance</h3>
+            <p>Document stratégique de 10 000+ mots couvrant tous les aspects de l'alliance RIRO — de l'analyse de marché à la stratégie de sortie.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>17 sections</span>
+              <span>Complet</span>
+              <span>Prêt investisseur</span>
+            </div>
+            <div class="card-actions">
+              <a href="fr/documents/document-complet.html" class="btn btn-view">Consulter</a>
+              <a href="fr/documents/document-complet.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('fr/documents/document-complet.html')">Télécharger PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">📄</div>
+            <h3>Résumé Exécutif</h3>
+            <p>Synthèse de 2-3 pages — le document idéal pour un rendez-vous banquier ou investisseur de 10 minutes.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2-3 pages</span>
+              <span>Chiffres clés</span>
+              <span>Lecture rapide</span>
+            </div>
+            <div class="card-actions">
+              <a href="fr/documents/resume-executif.html" class="btn btn-view">Consulter</a>
+              <a href="fr/documents/resume-executif.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('fr/documents/resume-executif.html')">Télécharger PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge doc">Document</span>
+          <div class="card-header">
+            <div class="card-icon">⚖️</div>
+            <h3>Protocole d'Accord</h3>
+            <p>Mémorandum d'accord juridique avec 20 sections couvrant gouvernance, PI, stratégie de sortie et résolution des litiges.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>20 sections</span>
+              <span>Français juridique</span>
+              <span>Prêt avocat</span>
+            </div>
+            <div class="card-actions">
+              <a href="fr/documents/protocole-accord.html" class="btn btn-view">Consulter</a>
+              <a href="fr/documents/protocole-accord.html" class="btn btn-pdf" onclick="event.preventDefault();openForPrint('fr/documents/protocole-accord.html')">Télécharger PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-gray">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Présentation</p>
+        <h2>Présentation Interactive</h2>
+        <p>18 diapositives glass-morphism — naviguer avec les flèches, clic ou glisser.</p>
+      </div>
+      <div class="deliverables" style="max-width:700px;margin:0 auto">
+        <div class="card">
+          <span class="card-badge pres">Présentation</span>
+          <div class="card-header" style="background:linear-gradient(135deg,rgba(11,29,81,0.08),rgba(201,169,110,0.08))">
+            <div class="card-icon">🎬</div>
+            <h3>Présentation Alliance RIRO</h3>
+            <p>Diaporama plein écran avec design inspiré du verre, graphiques animés et navigation au clavier.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>18 diapositives</span>
+              <span>Plein écran</span>
+              <span>Flèches / clic / glisser</span>
+            </div>
+            <div class="card-actions">
+              <a href="fr/presentation/index.html" class="btn btn-view" target="_blank">Lancer la Présentation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Site Web</p>
+        <h2>Site Web Corporate</h2>
+        <p>Site corporate multi-pages avec animations au scroll, compteurs et design premium.</p>
+      </div>
+      <div class="deliverables" style="max-width:700px;margin:0 auto">
+        <div class="card">
+          <span class="card-badge web">Site Web</span>
+          <div class="card-header" style="background:linear-gradient(135deg,rgba(39,174,96,0.05),rgba(46,134,171,0.06))">
+            <div class="card-icon">🌐</div>
+            <h3>Site Web Corporate RIRO</h3>
+            <p>Site multi-pages : Accueil, À Propos, Associés, Produits, Plan d'Affaires, Gouvernance, Contact.</p>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>7 pages</span>
+              <span>Responsive</span>
+              <span>Prêt à l'emploi</span>
+            </div>
+            <div class="card-actions">
+              <a href="fr/website/index.html" class="btn btn-view" target="_blank">Visiter le Site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">RI<span>RO</span></div>
+    <p>Bel Décor &times; MEZZO GRP — Tunisia / Tunisie</p>
+    <p style="margin-top:8px;font-size:0.75rem;color:rgba(255,255,255,0.3)">&copy; 2026 RIRO Business Alliance. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+function switchLang(lang){
+  document.querySelectorAll('.lang-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('lang-'+lang).classList.add('active');
+  event.target.classList.add('active');
+}
+function openForPrint(url){
+  const w=window.open(url,'_blank');
+  if(w){w.addEventListener('load',()=>{setTimeout(()=>w.print(),500)})}
+}
+</script>
+</body>
+</html>

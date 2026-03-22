@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIRO Alliance Commerciale — Bel Décor × MEZZO GRP</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#0a0e27;--deep:#1a1f4e;--accent:#4a90d9;--gold:#e8d5b7;--warm:#c9a96e;
+--white:#ffffff;--glass:rgba(255,255,255,0.06);
+--glass-border:rgba(255,255,255,0.12);--glass-hover:rgba(255,255,255,0.1);
+}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif;background:var(--navy);color:var(--white)}
+.deck{position:relative;width:100%;height:100%}
+.slide{
+position:absolute;top:0;left:0;width:100%;height:100%;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+padding:60px 80px;opacity:0;transform:translateY(30px);
+transition:opacity 0.6s ease,transform 0.6s ease;pointer-events:none;
+background:linear-gradient(135deg,var(--navy) 0%,#0d1233 50%,var(--deep) 100%);
+overflow-y:auto;
+}
+.slide.active{opacity:1;transform:translateY(0);pointer-events:all}
+.slide.exit-up{opacity:0;transform:translateY(-30px)}
+.glass{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(20px);padding:32px}
+.glass-sm{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(16px);padding:24px}
+h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:3.2rem;line-height:1.15;letter-spacing:-1px}
+h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:2.2rem;line-height:1.2;margin-bottom:20px}
+h3{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.3rem;margin-bottom:12px;color:var(--gold)}
+p{font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.8);max-width:800px}
+.subtitle{font-size:1.15rem;color:var(--gold);font-weight:400;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.tag{display:inline-block;background:rgba(74,144,217,0.2);border:1px solid rgba(74,144,217,0.3);border-radius:20px;padding:4px 14px;font-size:0.8rem;color:var(--accent);margin:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;width:100%;max-width:1100px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;width:100%;max-width:1100px}
+.four-col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;width:100%;max-width:1100px}
+.center-content{text-align:center;display:flex;flex-direction:column;align-items:center}
+.full-w{width:100%;max-width:1100px}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:28px;transition:all 0.3s ease}
+.card:hover{background:var(--glass-hover);transform:translateY(-4px);border-color:rgba(74,144,217,0.3)}
+.card .icon{font-size:2.4rem;margin-bottom:14px}
+.card h3{color:var(--gold);margin-bottom:8px}
+.card p{font-size:0.92rem;color:rgba(255,255,255,0.7)}
+.styled-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:0.95rem}
+.styled-table th{background:rgba(74,144,217,0.15);color:var(--accent);padding:12px 16px;text-align:left;font-weight:600;border-bottom:2px solid rgba(74,144,217,0.3)}
+.styled-table td{padding:11px 16px;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.85)}
+.stat{text-align:center;padding:20px}
+.stat .number{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:800;color:var(--accent);line-height:1}
+.stat .label{font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:8px;text-transform:uppercase;letter-spacing:1px}
+.bar-chart{width:100%;max-width:600px}
+.bar-row{display:flex;align-items:center;margin:10px 0}
+.bar-label{width:100px;font-size:0.85rem;color:rgba(255,255,255,0.7);text-align:right;padding-right:16px;flex-shrink:0}
+.bar-track{flex:1;height:36px;background:rgba(255,255,255,0.05);border-radius:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-size:0.8rem;font-weight:600}
+.bar-fill.blue{background:linear-gradient(90deg,var(--accent),#6ab0ff)}
+.bar-fill.gold{background:linear-gradient(90deg,var(--warm),#e8d5b7)}
+.timeline{position:relative;padding-left:40px;max-width:700px}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--warm))}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-item::before{content:'';position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--navy)}
+.timeline-item h3{color:var(--accent);font-size:1rem;margin-bottom:4px}
+.timeline-item p{font-size:0.9rem;color:rgba(255,255,255,0.7)}
+.risk-card{display:flex;gap:16px;align-items:flex-start}
+.risk-icon{font-size:1.8rem;flex-shrink:0}
+.risk-content h3{font-size:1rem;color:var(--gold);margin-bottom:4px}
+.risk-content p{font-size:0.88rem;color:rgba(255,255,255,0.65)}
+.risk-content .mitigation{color:rgba(74,144,217,0.9);font-size:0.85rem;margin-top:4px}
+#progress{position:fixed;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--warm));transition:width 0.4s ease;z-index:100}
+#slide-counter{position:fixed;bottom:12px;right:24px;font-size:0.75rem;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;z-index:100}
+#nav-hint{position:fixed;bottom:12px;left:24px;font-size:0.72rem;color:rgba(255,255,255,0.25);z-index:100}
+.glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(74,144,217,0.08) 0%,transparent 70%);pointer-events:none}
+.glow-gold{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.06) 0%,transparent 70%);pointer-events:none}
+.divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--warm));border-radius:2px;margin:16px auto}
+.slide.active .fade-in{animation:fadeInUp 0.6s ease forwards}
+.fade-in{opacity:0;transform:translateY(20px)}
+.fade-in:nth-child(1){animation-delay:0.1s}.fade-in:nth-child(2){animation-delay:0.2s}.fade-in:nth-child(3){animation-delay:0.3s}.fade-in:nth-child(4){animation-delay:0.4s}.fade-in:nth-child(5){animation-delay:0.5s}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.slide{padding:30px 24px}h1{font-size:2rem}h2{font-size:1.6rem}.two-col,.three-col,.four-col{grid-template-columns:1fr}.stat .number{font-size:2rem}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="slide-counter"></div>
+<div id="nav-hint">Flèches ou clic pour naviguer</div>
+
+<div class="deck">
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+<div class="glow" style="top:-100px;right:-100px"></div>
+<div class="glow-gold" style="bottom:-50px;left:-50px"></div>
+<div class="center-content">
+<div class="subtitle fade-in">Alliance Commerciale Stratégique</div>
+<h1 class="fade-in" style="font-size:4rem;margin-bottom:12px">RIRO</h1>
+<div class="divider fade-in"></div>
+<p class="fade-in" style="font-size:1.4rem;color:var(--white);margin:20px 0 8px">Bel Décor <span style="color:var(--gold)">×</span> MEZZO GRP</p>
+<p class="fade-in" style="font-size:1.1rem;color:rgba(255,255,255,0.6)">La Nouvelle Référence de la Décoration sur Verre en Tunisie</p>
+<p class="fade-in" style="font-size:0.85rem;color:rgba(255,255,255,0.3);margin-top:40px">Confidentiel — Mars 2026</p>
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+<div class="center-content">
+<div class="subtitle fade-in">Contexte de Marché</div>
+<h2 class="fade-in">L'Opportunité</h2>
+<p class="fade-in" style="margin-bottom:32px;text-align:center">Le marché tunisien de la décoration sur verre est sous-exploité. La demande croît dans la cosmétique, l'huile d'olive, la personnalisation et la grande distribution — sans acteur structuré pour y répondre.</p>
+<div class="four-col fade-in">
+<div class="card"><div class="icon">🎁</div><h3>Cadeaux Personnalisés</h3><p>Mariages, événements corporate, tourisme — la culture du cadeau personnalisé explose</p></div>
+<div class="card"><div class="icon">💄</div><h3>Cosmétique</h3><p>Les marques beauté recherchent des emballages verre distinctifs pour se démarquer</p></div>
+<div class="card"><div class="icon">🫒</div><h3>Huile d'Olive</h3><p>La Tunisie est le 2ème exportateur mondial — les bouteilles premium ajoutent de la valeur</p></div>
+<div class="card"><div class="icon">🏪</div><h3>Grande Distribution</h3><p>Les enseignes ont besoin de solutions d'emballage verre fiables et industrielles</p></div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+<div class="glow" style="top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+<div class="center-content">
+<div class="subtitle fade-in">Notre Ambition</div>
+<h2 class="fade-in" style="font-size:2.6rem;max-width:700px">Devenir la Référence Tunisienne de la Décoration et Personnalisation sur Verre</h2>
+<div class="divider fade-in"></div>
+<div class="glass fade-in" style="max-width:700px;margin-top:24px;text-align:left">
+<p style="margin-bottom:16px"><strong style="color:var(--gold)">Mission :</strong> Proposer des solutions de décoration sur verre d'exception qui subliment les marques, célèbrent les moments et établissent de nouveaux standards en Afrique du Nord.</p>
+<p><strong style="color:var(--gold)">Valeurs :</strong> Excellence artisanale — Intégrité du partenariat — Innovation — Obsession client</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Les Associés</div>
+<h2 class="fade-in">Deux Leaders, Une Vision</h2>
+<div class="two-col fade-in" style="margin-top:20px">
+<div class="glass" style="border-left:3px solid var(--accent)">
+<h3 style="color:var(--accent);font-size:1.4rem">Ridha</h3>
+<p style="color:var(--warm);font-size:0.95rem;margin-bottom:16px">Bel Décor — Directeur de Production</p>
+<p style="font-size:0.92rem;margin-bottom:12px">Plus de 15 ans à maîtriser l'art de la décoration sur verre. De la technique à la livraison — le pilier opérationnel de RIRO.</p>
+<div style="margin-top:12px">
+<span class="tag">Expert décoration verre</span>
+<span class="tag">Maître de production</span>
+<span class="tag">Portefeuille clients</span>
+<span class="tag">Formation d'équipes</span>
+</div>
+</div>
+<div class="glass" style="border-left:3px solid var(--warm)">
+<h3 style="color:var(--warm);font-size:1.4rem">Anthony</h3>
+<p style="color:var(--accent);font-size:0.95rem;margin-bottom:16px">MEZZO GRP — Directeur Commercial</p>
+<p style="font-size:0.92rem;margin-bottom:12px">Stratège commercial avec un œil pour le design premium et un réseau construit pour la croissance. Le moteur commercial de RIRO.</p>
+<div style="margin-top:12px">
+<span class="tag">Design premium</span>
+<span class="tag">Showroom</span>
+<span class="tag">Développement commercial</span>
+<span class="tag">Investissement</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Apports</div>
+<h2 class="fade-in">Ce que Chacun Apporte</h2>
+<div class="glass fade-in full-w" style="margin-top:16px">
+<table class="styled-table">
+<thead><tr><th>Apport</th><th>Ridha — Bel Décor</th><th>Anthony — MEZZO GRP</th></tr></thead>
+<tbody>
+<tr><td><strong>Actifs physiques</strong></td><td>Machines (~50 000 TND)</td><td>Local & Showroom</td></tr>
+<tr><td><strong>Expertise</strong></td><td>15+ ans décoration verre</td><td>Design premium & branding</td></tr>
+<tr><td><strong>Accès marché</strong></td><td>Portefeuille clients existant</td><td>Réseau commercial</td></tr>
+<tr><td><strong>Opérations</strong></td><td>Production & contrôle qualité</td><td>Ventes & développement</td></tr>
+<tr><td><strong>Capital humain</strong></td><td>Formation du personnel</td><td>Gestion d'équipe commerciale</td></tr>
+<tr><td><strong>Financier</strong></td><td>Location machines à la société</td><td>~22 000 TND d'investissement</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+<div class="center-content">
+<div class="subtitle fade-in">Complémentarité Parfaite</div>
+<h2 class="fade-in">La Synergie</h2>
+<div class="three-col fade-in" style="margin-top:24px">
+<div class="glass" style="text-align:center;border-top:3px solid var(--accent)">
+<div style="font-size:2.5rem;margin-bottom:12px">🔧</div>
+<h3 style="color:var(--accent)">Le Défi de Ridha</h3>
+<p>Maîtrise la production mais manque d'infrastructure commerciale et de showroom</p>
+</div>
+<div class="glass" style="text-align:center;border-top:3px solid var(--gold)">
+<div style="font-size:2.5rem;margin-bottom:12px">🤝</div>
+<h3>La Solution RIRO</h3>
+<p>Chaîne de valeur complète : du verre brut au produit premium entre les mains du client</p>
+</div>
+<div class="glass" style="text-align:center;border-top:3px solid var(--warm)">
+<div style="font-size:2.5rem;margin-bottom:12px">📈</div>
+<h3 style="color:var(--warm)">Le Défi d'Anthony</h3>
+<p>Possède le design et le réseau commercial mais manque de capacité de production</p>
+</div>
+</div>
+<p class="fade-in" style="margin-top:28px;text-align:center;font-size:1.1rem;color:var(--gold)">Aucun ne réussit seul — ensemble, ils couvrent toute la chaîne de valeur.</p>
+</div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Gamme de Produits</div>
+<h2 class="fade-in">Produits & Marchés</h2>
+<div class="four-col fade-in" style="margin-top:20px">
+<div class="card" style="border-top:3px solid var(--gold)">
+<div class="icon">✨</div><h3>Verre Personnalisé</h3>
+<p>Cadeaux sur mesure, objets de marque, souvenirs d'événements</p>
+<p style="color:var(--accent);font-weight:600;margin-top:12px">1,0 – 2,5 TND/pièce</p>
+<span class="tag">Prioritaire</span>
+</div>
+<div class="card" style="border-top:3px solid var(--accent)">
+<div class="icon">🏭</div><h3>Grande Distribution</h3>
+<p>Emballage verre haute volume pour les enseignes</p>
+<p style="color:var(--accent);font-weight:600;margin-top:12px">1,5 TND/pièce</p>
+<span class="tag">Volume</span>
+</div>
+<div class="card" style="border-top:3px solid #e0a0c0">
+<div class="icon">💎</div><h3>Cosmétique</h3>
+<p>Flacons premium pour les marques beauté</p>
+<p style="color:var(--accent);font-weight:600;margin-top:12px">1,5 – 2,5 TND/pièce</p>
+<span class="tag">Croissance</span>
+</div>
+<div class="card" style="border-top:3px solid #7ab648">
+<div class="icon">🫒</div><h3>Huile d'Olive</h3>
+<p>Bouteilles de marque pour le marché export</p>
+<p style="color:var(--accent);font-weight:600;margin-top:12px">1,0 – 2,0 TND/pièce</p>
+<span class="tag">Croissance</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+<div class="glow" style="top:-150px;left:-150px"></div>
+<div class="center-content">
+<div class="subtitle fade-in">Capacités</div>
+<h2 class="fade-in">Puissance de Production</h2>
+<div class="three-col fade-in" style="margin-top:32px">
+<div class="glass" style="text-align:center"><div class="stat"><div class="number">2 000</div><div class="label">Pièces par Jour</div></div></div>
+<div class="glass" style="text-align:center"><div class="stat"><div class="number" style="color:var(--warm)">40K</div><div class="label">TND/Mois Potentiel</div></div></div>
+<div class="glass" style="text-align:center"><div class="stat"><div class="number" style="color:var(--gold)">8K</div><div class="label">Pièces pour le Point Mort</div></div></div>
+</div>
+<p class="fade-in" style="margin-top:28px;text-align:center">À 22 jours ouvrés/mois, la capacité atteint <strong style="color:var(--accent)">44 000 pièces/mois</strong> — bien au-dessus du seuil de rentabilité.</p>
+</div>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Les Chiffres</div>
+<h2 class="fade-in">Vue Financière</h2>
+<div class="two-col fade-in" style="margin-top:20px">
+<div class="glass">
+<h3 style="color:var(--accent)">Investissement & Charges</h3>
+<table class="styled-table">
+<tbody>
+<tr><td>Investissement initial</td><td style="text-align:right;font-weight:600;color:var(--accent)">22 000 TND</td></tr>
+<tr><td>Actifs machines (loués)</td><td style="text-align:right;font-weight:600;color:var(--accent)">~50 000 TND</td></tr>
+<tr><td>Charges mensuelles</td><td style="text-align:right;font-weight:600;color:var(--accent)">~12 000 TND</td></tr>
+<tr><td>Seuil de rentabilité</td><td style="text-align:right;font-weight:600;color:var(--accent)">8 000 pcs/mois</td></tr>
+</tbody>
+</table>
+</div>
+<div class="glass">
+<h3 style="color:var(--warm)">Potentiel de Revenus</h3>
+<table class="styled-table">
+<tbody>
+<tr><td>Verre personnalisé</td><td style="text-align:right;font-weight:600;color:var(--warm)">1,0 – 2,5 TND/pc</td></tr>
+<tr><td>Verre GD</td><td style="text-align:right;font-weight:600;color:var(--warm)">1,5 TND/pc</td></tr>
+<tr><td>CA mensuel cible</td><td style="text-align:right;font-weight:600;color:var(--warm)">25 000 – 40 000 TND</td></tr>
+<tr><td>Profit mensuel potentiel</td><td style="text-align:right;font-weight:600;color:var(--warm)">13 000 – 28 000 TND</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide">
+<div class="center-content">
+<div class="subtitle fade-in">Trajectoire de Croissance</div>
+<h2 class="fade-in">Projections de CA</h2>
+<div class="bar-chart fade-in" style="margin-top:28px">
+<div class="bar-row"><div class="bar-label">M1–3</div><div class="bar-track"><div class="bar-fill blue" style="width:25%">5K–10K</div></div></div>
+<div class="bar-row"><div class="bar-label">M3–6</div><div class="bar-track"><div class="bar-fill blue" style="width:50%">15K–20K</div></div></div>
+<div class="bar-row"><div class="bar-label">M6–12</div><div class="bar-track"><div class="bar-fill gold" style="width:70%">25K+ TND</div></div></div>
+<div class="bar-row"><div class="bar-label">An 2+</div><div class="bar-track"><div class="bar-fill gold" style="width:95%">40K+ TND</div></div></div>
+</div>
+<div class="glass-sm fade-in" style="margin-top:28px;max-width:500px;text-align:center">
+<p style="font-size:1rem"><strong style="color:var(--gold)">ROI :</strong> À 25K TND/mois avec 12K de charges = 13K de profit/mois.<br>
+L'investissement de 22K TND est récupéré en <strong style="color:var(--accent)">~2 mois</strong> à maturité.</p>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 11 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Cadre Juridique</div>
+<h2 class="fade-in">Structure de l'Alliance</h2>
+<div class="glass fade-in full-w" style="text-align:center;margin-top:16px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+<div class="glass-sm" style="display:inline-block;border:2px solid var(--accent)">
+<h3 style="color:var(--accent);font-size:1.2rem;margin-bottom:4px">RIRO SARL</h3>
+<p style="font-size:0.9rem">Société à Responsabilité Limitée — Droit tunisien</p>
+</div>
+<div style="font-size:1.5rem;color:rgba(255,255,255,0.3)">▼</div>
+<div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center">
+<div class="glass-sm" style="border-left:3px solid var(--accent);min-width:280px">
+<h3 style="color:var(--accent)">50% — Ridha</h3>
+<p style="font-size:0.88rem">Machines louées à la société<br>Propriété personnelle conservée<br>Loyers en compte courant</p>
+</div>
+<div class="glass-sm" style="border-left:3px solid var(--warm);min-width:280px">
+<h3 style="color:var(--warm)">50% — Anthony</h3>
+<p style="font-size:0.88rem">Local loué à la société<br>Propriété personnelle conservée<br>22K TND d'investissement</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fade-in" style="margin-top:16px;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.5)">Les actifs restent propriété personnelle — loués à la société pour son exploitation. Protégés en cas de dissolution.</p>
+</div>
+</div>
+
+<!-- SLIDE 12 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Cadre de Gestion</div>
+<h2 class="fade-in">Gouvernance</h2>
+<div class="two-col fade-in" style="margin-top:20px">
+<div>
+<div class="glass" style="margin-bottom:20px;border-left:3px solid var(--accent)">
+<h3 style="color:var(--accent)">🔧 Ridha — Directeur de Production</h3>
+<p style="font-size:0.9rem">Opérations & fabrication<br>Contrôle qualité<br>Formation du personnel<br>Planification de la production</p>
+</div>
+<div class="glass" style="border-left:3px solid var(--warm)">
+<h3 style="color:var(--warm)">📊 Anthony — Directeur Commercial</h3>
+<p style="font-size:0.9rem">Stratégie ventes & marketing<br>Design premium & branding<br>Gestion du showroom<br>Développement d'affaires</p>
+</div>
+</div>
+<div class="glass">
+<h3>Matrice de Décision</h3>
+<table class="styled-table">
+<thead><tr><th>Type de décision</th><th>Autorité</th></tr></thead>
+<tbody>
+<tr><td>Opérations courantes</td><td>Chaque directeur dans son domaine</td></tr>
+<tr><td>Dépenses &lt; 5 000 TND</td><td>L'un ou l'autre</td></tr>
+<tr><td>Dépenses &gt; 5 000 TND</td><td>Accord unanime</td></tr>
+<tr><td>Recrutement / contrats</td><td>Accord unanime</td></tr>
+<tr><td>Orientation stratégique</td><td>Comité de pilotage</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:12px">Comité mensuel • Revue trimestrielle • Bilan stratégique annuel</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 13 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Gestion des Risques</div>
+<h2 class="fade-in">Maîtrise des Risques Clés</h2>
+<div class="three-col fade-in" style="margin-top:24px">
+<div class="glass"><div class="risk-card"><div class="risk-icon">⚖️</div><div class="risk-content"><h3>Blocage 50/50</h3><p>L'égalité peut paralyser les décisions en cas de désaccord</p><p class="mitigation">→ Clause de médiation + protocole de vote prépondérant sur des sujets prédéfinis</p></div></div></div>
+<div class="glass"><div class="risk-card"><div class="risk-icon">📉</div><div class="risk-content"><h3>Risque de Dilution</h3><p>De futurs tours d'investissement pourraient déséquilibrer la répartition</p><p class="mitigation">→ Clauses anti-dilution + droits de préemption dans le pacte d'associés</p></div></div></div>
+<div class="glass"><div class="risk-card"><div class="risk-icon">🔐</div><div class="risk-content"><h3>Perte de Contrôle</h3><p>Le partenaire commercial pourrait capter les relations clients</p><p class="mitigation">→ Domaines définis + données clients = actif société + non-concurrence</p></div></div></div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 14 -->
+<div class="slide">
+<div class="center-content">
+<div class="subtitle fade-in">Plan d'Exécution</div>
+<h2 class="fade-in">Calendrier de Mise en Œuvre</h2>
+<div class="timeline fade-in" style="margin-top:28px">
+<div class="timeline-item"><h3>Phase 1 — Fondation (Mois 1–3)</h3><p>Signature du protocole, expertise machines, immatriculation SARL, installation, premières productions</p></div>
+<div class="timeline-item"><h3>Phase 2 — Lancement (Mois 3–6)</h3><p>Ouverture showroom, 10 premiers clients, production à 1 000 pcs/jour, CA : 15K–20K TND</p></div>
+<div class="timeline-item"><h3>Phase 3 — Croissance (Mois 6–12)</h3><p>Pleine capacité 2 000 pcs/jour, 20+ clients actifs, CA : 25K+ TND, rentabilité atteinte</p></div>
+<div class="timeline-item"><h3>Phase 4 — Expansion (Année 2+)</h3><p>Nouvelles lignes de produits, exploration export, 40K+ TND/mois, planification d'expansion</p></div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 15 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Notre Avantage</div>
+<h2 class="fade-in">Avantage Concurrentiel</h2>
+<div class="four-col fade-in" style="margin-top:24px">
+<div class="glass" style="text-align:center"><div style="font-size:2.2rem;margin-bottom:10px">🏆</div><h3 style="font-size:1rem">Expertise Inégalée</h3><p style="font-size:0.85rem">15+ ans de savoir-faire en décoration sur verre — rare en Tunisie</p></div>
+<div class="glass" style="text-align:center"><div style="font-size:2.2rem;margin-bottom:10px">🎨</div><h3 style="font-size:1rem">Design + Artisanat</h3><p style="font-size:0.85rem">Capacité de design premium fusionnée avec une qualité de production artisanale</p></div>
+<div class="glass" style="text-align:center"><div style="font-size:2.2rem;margin-bottom:10px">⚡</div><h3 style="font-size:1rem">Prêt à Produire</h3><p style="font-size:0.85rem">2 000 pièces/jour pour commandes boutique et industrielles</p></div>
+<div class="glass" style="text-align:center"><div style="font-size:2.2rem;margin-bottom:10px">🛡️</div><h3 style="font-size:1rem">Actifs Protégés</h3><p style="font-size:0.85rem">Structure de location qui protège les biens personnels tout en permettant la croissance</p></div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 16 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Options de Partenariat</div>
+<h2 class="fade-in">Cadre de Négociation</h2>
+<div class="three-col fade-in" style="margin-top:24px">
+<div class="glass" style="border-top:3px solid #4CAF50;text-align:center">
+<h3 style="color:#4CAF50;font-size:1.3rem">Plan A</h3>
+<p style="color:var(--white);font-weight:600;margin-bottom:12px">50/50 Équilibré</p>
+<p style="font-size:0.88rem">Parts égales, gouvernance équilibrée, voix égale. Résolution des blocages par médiation.</p>
+<p style="color:#4CAF50;font-size:0.85rem;margin-top:12px">Scénario privilégié</p>
+</div>
+<div class="glass" style="border-top:3px solid var(--accent);text-align:center">
+<h3 style="color:var(--accent);font-size:1.3rem">Plan B</h3>
+<p style="color:var(--white);font-weight:600;margin-bottom:12px">Minoritaire, Sécurisé</p>
+<p style="font-size:0.88rem">Participation minoritaire avec protections solides : droit de veto, contrôle opérationnel garanti, salaire minimum.</p>
+<p style="color:var(--accent);font-size:0.85rem;margin-top:12px">Repli sécurisé</p>
+</div>
+<div class="glass" style="border-top:3px solid var(--warm);text-align:center">
+<h3 style="color:var(--warm);font-size:1.3rem">Plan C</h3>
+<p style="color:var(--white);font-weight:600;margin-bottom:12px">Sortie Propre</p>
+<p style="font-size:0.88rem">Si les conditions ne protègent pas les intérêts essentiels, retrait avec actifs intacts. Machines restituées. Aucune obligation.</p>
+<p style="color:var(--warm);font-size:0.85rem;margin-top:12px">Filet de sécurité</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 17 -->
+<div class="slide">
+<div class="center-content" style="width:100%">
+<div class="subtitle fade-in">Plan d'Action</div>
+<h2 class="fade-in">Prochaines Étapes</h2>
+<div class="glass fade-in full-w" style="margin-top:20px">
+<table class="styled-table">
+<thead><tr><th>#</th><th>Action</th><th>Délai</th><th>Responsable</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Signature du protocole d'accord</td><td>Semaine 1</td><td>Les deux associés</td></tr>
+<tr><td>2</td><td>Expertise indépendante des machines</td><td>Semaine 2–3</td><td>Expert externe</td></tr>
+<tr><td>3</td><td>Inspection du local & contrat de bail</td><td>Semaine 2–3</td><td>Anthony</td></tr>
+<tr><td>4</td><td>Revue juridique & immatriculation SARL</td><td>Semaine 3–6</td><td>Conseil juridique</td></tr>
+<tr><td>5</td><td>Mise en place & première production</td><td>Semaine 6–8</td><td>Ridha</td></tr>
+<tr><td>6</td><td>Ouverture showroom & premières ventes</td><td>Semaine 8–12</td><td>Anthony</td></tr>
+<tr><td>7</td><td>Première revue trimestrielle</td><td>Mois 3</td><td>Les deux associés</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 18 -->
+<div class="slide">
+<div class="glow" style="top:30%;left:30%"></div>
+<div class="glow-gold" style="bottom:20%;right:20%"></div>
+<div class="center-content">
+<div class="subtitle fade-in">Merci</div>
+<h1 class="fade-in" style="font-size:3.5rem;margin-bottom:8px">RIRO</h1>
+<div class="divider fade-in"></div>
+<p class="fade-in" style="font-size:1.2rem;color:var(--gold);margin-top:16px">Là où l'Artisanat rencontre le Commerce</p>
+<p class="fade-in" style="margin-top:32px;font-size:1rem;color:rgba(255,255,255,0.6)">Bel Décor × MEZZO GRP</p>
+<p class="fade-in" style="font-size:0.9rem;color:rgba(255,255,255,0.4)">Tunisie — 2026</p>
+<div class="fade-in" style="margin-top:40px"><p style="font-size:0.85rem;color:rgba(255,255,255,0.3)">Contact : [email] • [téléphone]</p></div>
+</div>
+</div>
+
+</div>
+
+<script>
+(function(){
+const slides=document.querySelectorAll('.slide');let current=0;const total=slides.length;
+const progress=document.getElementById('progress');const counter=document.getElementById('slide-counter');
+function updateUI(){progress.style.width=((current+1)/total*100)+'%';counter.textContent=(current+1)+' / '+total}
+function goTo(n){if(n<0||n>=total||n===current)return;const prev=current;slides[current].classList.remove('active');slides[current].classList.add('exit-up');current=n;slides[current].classList.add('active');setTimeout(()=>slides[prev].classList.remove('exit-up'),600);updateUI()}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')goTo(current+1);if(e.key==='ArrowLeft'||e.key==='ArrowUp')goTo(current-1)});
+document.addEventListener('click',e=>{e.clientX>window.innerWidth*0.5?goTo(current+1):goTo(current-1)});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX});document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50){d<0?goTo(current+1):goTo(current-1)}});
+updateUI()})();
+</script>
+</body>
+</html>
