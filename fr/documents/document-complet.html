@@ -10,7 +10,7 @@
 body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;background:#fafbfe;line-height:1.7}
 h1,h2,h3,h4,h5{font-family:'Playfair Display',Georgia,serif;line-height:1.3;color:#0B1D51}
 a{color:#2E86AB;text-decoration:none}
-.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);padding:12px 0}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);padding:12px 0}
 .topbar .inner{max-width:900px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
 .topbar .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:#0B1D51}
 .topbar .brand span{color:#C9A96E}
@@ -20,58 +20,2993 @@ a{color:#2E86AB;text-decoration:none}
 .btn-print{padding:8px 20px;border-radius:6px;font-weight:600;font-size:0.82rem;cursor:pointer;border:none;background:#0B1D51;color:white;transition:all 0.3s}
 .btn-print:hover{background:#2E86AB}
 .document{max-width:900px;margin:0 auto;padding:48px 32px 80px}
-.document h1{font-size:2.4rem;margin:32px 0 8px;padding-top:24px}
-.document h2{font-size:1.8rem;margin:40px 0 12px;padding-top:20px;border-bottom:2px solid rgba(11,29,81,0.08);padding-bottom:12px}
-.document h3{font-size:1.3rem;margin:28px 0 10px;color:#2E86AB}
-.document h4{font-size:1.1rem;margin:20px 0 8px;font-family:'Inter',sans-serif;font-weight:600}
-.document p{margin-bottom:16px;font-size:0.95rem}
-.document ul,.document ol{margin:12px 0 16px 24px;font-size:0.95rem}
-.document li{margin-bottom:6px}
+.document h1{font-size:2.2rem;margin:32px 0 8px;padding-top:24px}
+.document h2{font-size:1.7rem;margin:36px 0 12px;padding-top:20px;border-bottom:2px solid rgba(11,29,81,0.08);padding-bottom:12px}
+.document h3{font-size:1.25rem;margin:24px 0 10px;color:#2E86AB}
+.document h4{font-size:1.05rem;margin:18px 0 8px;font-family:'Inter',sans-serif;font-weight:600}
+.document p{margin-bottom:14px;font-size:0.93rem}
+.document ul,.document ol{margin:10px 0 14px 24px;font-size:0.93rem}
+.document li{margin-bottom:5px}
 .document strong{color:#0B1D51}
-.document hr{border:none;border-top:2px solid rgba(11,29,81,0.06);margin:32px 0}
-.document table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.88rem}
-.document th{background:#0B1D51;color:white;padding:10px 14px;text-align:left;font-weight:600;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.3px}
-.document td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,0.06)}
-.document tr:hover td{background:rgba(11,29,81,0.02)}
-.document pre{background:#f0f2f8;border-radius:8px;padding:20px;overflow-x:auto;font-size:0.85rem;margin:16px 0;font-family:'Courier New',monospace;line-height:1.5}
-.document code{background:rgba(11,29,81,0.06);padding:2px 6px;border-radius:4px;font-size:0.88rem}
-.placeholder{text-align:center;padding:120px 32px;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.placeholder h1{font-size:2rem;margin-bottom:16px;color:#0B1D51}
-.placeholder h2{font-size:1.4rem;margin-bottom:20px;color:#2E86AB;border:none;padding:0}
-.placeholder p{font-size:1.1rem;color:#6b7280;max-width:500px}
-.placeholder .badge{display:inline-block;margin-top:24px;padding:8px 24px;border-radius:20px;background:rgba(11,29,81,0.06);color:#0B1D51;font-weight:600;font-size:0.85rem}
+.document em{color:#6b7280}
+.document hr{border:none;border-top:2px solid rgba(11,29,81,0.06);margin:28px 0}
+.document table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:0.85rem}
+.document thead th{background:#0B1D51;color:white;padding:10px 12px;text-align:left;font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.3px}
+.document td{padding:9px 12px;border-bottom:1px solid rgba(0,0,0,0.06)}
+.document tr:nth-child(even) td{background:rgba(11,29,81,0.015)}
+.document tr:hover td{background:rgba(11,29,81,0.03)}
+.document pre{background:#f0f2f8;border-radius:8px;padding:18px;overflow-x:auto;font-size:0.82rem;margin:14px 0;font-family:'Courier New',monospace;line-height:1.5}
+.document code{background:rgba(11,29,81,0.05);padding:1px 5px;border-radius:3px;font-size:0.87rem}
+.document pre code{background:none;padding:0}
 @media print{
-  .topbar{display:none !important}
-  body{background:white;font-size:11pt}
-  .document{padding:0;max-width:100%}
-  .document h1{font-size:22pt}
-  .document h2{font-size:16pt;break-after:avoid}
-  .document h3{font-size:13pt;break-after:avoid}
-  .document table{font-size:9pt;break-inside:avoid}
-  .document pre{break-inside:avoid}
-  a{color:#1a1a2e !important}
-  @page{margin:2cm;size:A4}
+.topbar{display:none!important}body{background:white;font-size:10.5pt}.document{padding:0;max-width:100%}
+.document h1{font-size:20pt;page-break-after:avoid}.document h2{font-size:15pt;page-break-after:avoid}
+.document h3{font-size:12pt;page-break-after:avoid}.document table{font-size:8.5pt;page-break-inside:avoid}
+.document pre{page-break-inside:avoid;font-size:8pt}a{color:#1a1a2e!important}@page{margin:1.8cm;size:A4}
 }
+@media(max-width:768px){.document{padding:24px 16px 60px}.document h1{font-size:1.6rem}.document h2{font-size:1.3rem}.topbar .inner{padding:0 16px}}
 </style>
 </head>
 <body>
-<div class="topbar">
-  <div class="inner">
-    <a class="brand" href="../../index.html">RI<span>RO</span></a>
-    <div class="actions">
-      <a href="../../index.html" class="back">&larr; Retour au Hub</a>
-      <button class="btn-print" onclick="window.print()">Télécharger PDF</button>
-    </div>
-  </div>
-</div>
+<div class="topbar"><div class="inner"><a class="brand" href="../../index.html">RI<span>RO</span></a><div class="actions"><a href="../../index.html" class="back">&larr; Retour au Hub</a><button class="btn-print" onclick="window.print()">Télécharger PDF</button></div></div></div>
 <div class="document">
+<h1>RIRO — ALLIANCE COMMERCIALE</h1>
+<hr>
+<div align="center">
 
-<div class="placeholder">
-  <h1>Document Stratégique Complet</h1>
-  <h2>RIRO Alliance Commerciale</h2>
-  <p>Document en cours de préparation — Bientôt disponible</p>
-  <span class="badge">En cours de rédaction</span>
+<p><strong>DOCUMENT CONFIDENTIEL</strong></p>
+<h1>RIRO</h1>
+<h2>Alliance Commerciale pour la Décoration et la Personnalisation du Verre</h2>
+<p><strong>Ridha — Bel Décor × Anthony — MEZZO GRP</strong></p>
+<p>République Tunisienne</p>
+<hr>
+<p><em>Document de référence — Version 1.0</em>
+<em>Date d&#39;émission : 22 mars 2026</em>
+<em>Classification : Confidentiel — Usage interne exclusif</em></p>
+<hr>
+<p><strong>Préparé pour les associés fondateurs et leurs conseils respectifs</strong></p>
+<p>Ce document constitue la base contractuelle et stratégique de l&#39;alliance RIRO.
+Toute reproduction, diffusion ou communication à des tiers non autorisés est strictement interdite.</p>
 </div>
+
+<hr>
+<h2>TABLE DES MATIÈRES</h2>
+<ol>
+<li><a href="#1-r%C3%A9sum%C3%A9-ex%C3%A9cutif">Résumé exécutif</a></li>
+<li><a href="#2-contexte-strat%C3%A9gique">Contexte stratégique</a></li>
+<li><a href="#3-vision-et-mission">Vision et mission</a></li>
+<li><a href="#4-profils-des-associ%C3%A9s">Profils des associés</a></li>
+<li><a href="#5-structure-de-lalliance">Structure de l&#39;alliance</a></li>
+<li><a href="#6-analyse-de-la-proposition-de-valeur">Analyse de la proposition de valeur</a></li>
+<li><a href="#7-analyse-de-march%C3%A9">Analyse de marché</a></li>
+<li><a href="#8-plan-financier">Plan financier</a></li>
+<li><a href="#9-feuille-de-route">Feuille de route</a></li>
+<li><a href="#10-gouvernance-et-op%C3%A9rations">Gouvernance et opérations</a></li>
+<li><a href="#11-gestion-de-la-performance">Gestion de la performance</a></li>
+<li><a href="#12-%C3%A9valuation-des-risques">Évaluation des risques</a></li>
+<li><a href="#13-cadre-juridique">Cadre juridique</a></li>
+<li><a href="#14-cadre-de-n%C3%A9gociation">Cadre de négociation</a></li>
+<li><a href="#15-strat%C3%A9gie-de-sortie">Stratégie de sortie</a></li>
+<li><a href="#16-annexes">Annexes</a></li>
+</ol>
+<hr>
+<h1>1. RÉSUMÉ EXÉCUTIF</h1>
+<h2>1.1 Objet du document</h2>
+<p>Le présent document formalise l&#39;ensemble des paramètres stratégiques, financiers, juridiques et opérationnels de l&#39;alliance commerciale <strong>RIRO</strong>, constituée entre <strong>Ridha</strong>, fondateur de Bel Décor (spécialiste de la décoration et de la personnalisation sur verre), et <strong>Anthony</strong>, dirigeant de MEZZO GRP (développement commercial, design et stratégie de marque). L&#39;alliance vise la création d&#39;une société à responsabilité limitée (SARL) de droit tunisien, positionnée sur le marché de l&#39;emballage en verre personnalisé en Tunisie.</p>
+<h2>1.2 Opportunité identifiée</h2>
+<p>Le marché tunisien de l&#39;emballage en verre traverse une phase de mutation structurelle. La demande croissante pour des produits différenciés — notamment dans les secteurs de la cosmétique, de l&#39;agroalimentaire et de la grande distribution — crée un espace stratégique pour un acteur capable de combiner maîtrise technique de la décoration sur verre et capacité commerciale structurée. Aujourd&#39;hui, la majorité des acteurs locaux proposent soit de la sérigraphie basique, soit de l&#39;importation de produits finis. Aucun ne réunit, sous un même toit, la personnalisation haut de gamme, la flexibilité industrielle et l&#39;approche commerciale orientée client.</p>
+<p>RIRO entend occuper ce créneau avec un positionnement clair : <strong>devenir la référence tunisienne de la personnalisation et de la décoration sur verre</strong>, au service des marques locales et régionales.</p>
+<h2>1.3 Chiffres clés de l&#39;alliance</h2>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Forme juridique</td>
+<td>SARL de droit tunisien</td>
+</tr>
+<tr>
+<td>Répartition du capital</td>
+<td>50 % Ridha — 50 % Anthony</td>
+</tr>
+<tr>
+<td>Investissement initial (Anthony)</td>
+<td>22 000 TND</td>
+</tr>
+<tr>
+<td>Valeur des machines (louées par Ridha)</td>
+<td>~50 000 TND</td>
+</tr>
+<tr>
+<td>Local + showroom</td>
+<td>Loué par Anthony</td>
+</tr>
+<tr>
+<td>Capacité de production</td>
+<td>2 000 pièces/jour</td>
+</tr>
+<tr>
+<td>Charges mensuelles estimées</td>
+<td>~12 000 TND/mois</td>
+</tr>
+<tr>
+<td>Point mort mensuel</td>
+<td>8 000 pièces/mois</td>
+</tr>
+<tr>
+<td>Chiffre d&#39;affaires cible</td>
+<td>25 000 – 40 000 TND/mois</td>
+</tr>
+</tbody></table>
+<h2>1.4 Synthèse de la proposition</h2>
+<p>L&#39;alliance repose sur une complémentarité fondamentale : Ridha apporte l&#39;expertise technique, le parc machines et le savoir-faire industriel ; Anthony apporte le capital d&#39;amorçage, le réseau commercial, la stratégie de marque et l&#39;infrastructure commerciale (local, showroom). La structure 50/50 reflète cette parité de contribution, chaque associé étant indispensable à la réussite du projet.</p>
+<p>Le modèle économique cible une rentabilité à partir du sixième mois d&#39;exploitation, avec un chiffre d&#39;affaires mensuel stabilisé entre 25 000 et 40 000 TND dès la fin de la première année. La diversification des segments clients (grande distribution, cosmétique, huile d&#39;olive, hôtellerie, événementiel) assure une résilience face aux fluctuations sectorielles.</p>
+<h2>1.5 Facteurs critiques de succès</h2>
+<ul>
+<li><strong>Complémentarité des profils</strong> : technique × commercial</li>
+<li><strong>Flexibilité de production</strong> : petites et moyennes séries personnalisées</li>
+<li><strong>Positionnement prix compétitif</strong> : marges saines sur chaque segment</li>
+<li><strong>Gouvernance claire</strong> : mécanismes de décision et de résolution des conflits définis en amont</li>
+<li><strong>Cadre de négociation structuré</strong> : plans A, B et C pour chaque scénario d&#39;évolution de l&#39;alliance</li>
+</ul>
+<hr>
+<h1>2. CONTEXTE STRATÉGIQUE</h1>
+<h2>2.1 Le marché tunisien : état des lieux</h2>
+<p>L&#39;économie tunisienne, malgré les défis macroéconomiques des dernières années (inflation, pression sur le dinar, contraintes d&#39;importation), présente des signaux encourageants pour le secteur industriel de transformation. Le gouvernement a réaffirmé sa volonté de soutenir l&#39;industrialisation locale, la substitution aux importations et le développement des exportations à valeur ajoutée.</p>
+<p>Le secteur de l&#39;emballage en verre bénéficie de plusieurs dynamiques favorables :</p>
+<ul>
+<li><strong>Tendance mondiale vers le verre</strong> : dans un contexte de réglementation accrue sur les plastiques, le verre redevient un matériau privilégié, notamment dans l&#39;agroalimentaire et la cosmétique.</li>
+<li><strong>Demande locale de personnalisation</strong> : les marques tunisiennes, de plus en plus conscientes de l&#39;importance du packaging, cherchent des solutions de différenciation accessibles.</li>
+<li><strong>Marché de l&#39;huile d&#39;olive</strong> : la Tunisie est l&#39;un des premiers exportateurs mondiaux. La montée en gamme des conditionnements représente une opportunité majeure.</li>
+<li><strong>Tourisme et hôtellerie</strong> : la reprise du secteur touristique alimente la demande en produits personnalisés (verrerie de table, cadeaux d&#39;entreprise, articles promotionnels).</li>
+</ul>
+<h2>2.2 Opportunités spécifiques au verre personnalisé</h2>
+<p>Le marché de la décoration sur verre en Tunisie reste largement sous-exploité. Les principaux constats :</p>
+<table>
+<thead>
+<tr>
+<th>Constat</th>
+<th>Implication pour RIRO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Peu d&#39;acteurs locaux proposent de la personnalisation de qualité</td>
+<td>Faible concurrence directe</td>
+</tr>
+<tr>
+<td>Les marques importent leurs emballages personnalisés</td>
+<td>Coûts élevés, délais longs — RIRO offre une alternative locale</td>
+</tr>
+<tr>
+<td>La grande distribution cherche des fournisseurs locaux fiables</td>
+<td>Accès direct aux volumes</td>
+</tr>
+<tr>
+<td>Le secteur cosmétique tunisien est en croissance</td>
+<td>Segment à forte marge</td>
+</tr>
+<tr>
+<td>L&#39;huile d&#39;olive premium nécessite un packaging différenciant</td>
+<td>Marché captif pour la personnalisation</td>
+</tr>
+</tbody></table>
+<h2>2.3 Paysage concurrentiel</h2>
+<p>L&#39;analyse du paysage concurrentiel révèle trois catégories d&#39;acteurs :</p>
+<p><strong>1. Les verriers industriels</strong> (SOTUVER et assimilés)</p>
+<ul>
+<li>Production de masse, peu ou pas de personnalisation</li>
+<li>Délais longs, quantités minimales élevées</li>
+<li>Non positionnés sur la décoration</li>
+</ul>
+<p><strong>2. Les sérigraphes généralistes</strong></p>
+<ul>
+<li>Offre basique (impression simple sur verre)</li>
+<li>Qualité variable, pas de capacité design intégrée</li>
+<li>Pas d&#39;approche commerciale structurée</li>
+</ul>
+<p><strong>3. L&#39;importation</strong></p>
+<ul>
+<li>Produits finis importés de Chine, Turquie, Europe</li>
+<li>Coûts élevés (transport, douane, change)</li>
+<li>Délais incompatibles avec la réactivité demandée par le marché</li>
+</ul>
+<p><strong>Positionnement RIRO</strong> : RIRO se situe dans un espace stratégique non occupé — entre l&#39;industriel de masse et l&#39;artisan — avec une proposition de valeur unique : personnalisation de qualité, flexibilité de production, prix compétitifs et accompagnement commercial intégré.</p>
+<hr>
+<h1>3. VISION ET MISSION</h1>
+<h2>3.1 Vision</h2>
+<blockquote>
+<p><strong>Devenir la référence tunisienne en matière de décoration et de personnalisation sur verre, reconnue pour l&#39;excellence de son exécution, la créativité de ses solutions et la fiabilité de son partenariat avec les marques locales et régionales.</strong></p>
+</blockquote>
+<p>À l&#39;horizon de cinq ans, RIRO ambitionne d&#39;être le partenaire privilégié de toute marque tunisienne souhaitant valoriser son image à travers un emballage en verre distinctif.</p>
+<h2>3.2 Mission</h2>
+<p>Fournir aux entreprises tunisiennes — de la PME artisanale à la grande distribution — des solutions de décoration sur verre personnalisées, accessibles et de qualité professionnelle, en combinant :</p>
+<ul>
+<li>Le <strong>savoir-faire technique</strong> de Bel Décor</li>
+<li>La <strong>vision commerciale et créative</strong> de MEZZO GRP</li>
+<li>Une <strong>structure de coûts optimisée</strong> grâce à la production locale</li>
+<li>Un <strong>service client réactif</strong> et orienté résultats</li>
+</ul>
+<h2>3.3 Valeurs fondatrices</h2>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Traduction opérationnelle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Excellence technique</strong></td>
+<td>Zéro compromis sur la qualité de la décoration</td>
+</tr>
+<tr>
+<td><strong>Partenariat</strong></td>
+<td>Relation durable avec les clients, au-delà de la simple transaction</td>
+</tr>
+<tr>
+<td><strong>Innovation</strong></td>
+<td>Recherche permanente de nouvelles techniques et applications</td>
+</tr>
+<tr>
+<td><strong>Intégrité</strong></td>
+<td>Transparence dans la gouvernance et la relation entre associés</td>
+</tr>
+<tr>
+<td><strong>Ancrage local</strong></td>
+<td>Valorisation du savoir-faire tunisien, contribution à l&#39;économie nationale</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>4. PROFILS DES ASSOCIÉS</h1>
+<h2>4.1 Ridha — Bel Décor</h2>
+<h3>Parcours et expertise</h3>
+<p>Ridha est le fondateur et dirigeant de <strong>Bel Décor</strong>, entreprise tunisienne spécialisée dans la décoration sur verre. Son parcours lui confère une maîtrise technique approfondie des procédés de sérigraphie, de laquage, de satinage et de décoration à chaud sur supports en verre. Il a développé au fil des années un savoir-faire reconnu sur le marché local.</p>
+<h3>Actifs apportés à l&#39;alliance</h3>
+<table>
+<thead>
+<tr>
+<th>Actif</th>
+<th>Description</th>
+<th>Valeur estimée</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Parc machines</td>
+<td>Ensemble d&#39;équipements de décoration sur verre (sérigraphie, four, etc.)</td>
+<td>~50 000 TND</td>
+</tr>
+<tr>
+<td>Savoir-faire technique</td>
+<td>Maîtrise des procédés de décoration, contrôle qualité</td>
+<td>Non valorisable</td>
+</tr>
+<tr>
+<td>Réseau fournisseurs</td>
+<td>Relations établies avec les fournisseurs de verre brut et de consommables</td>
+<td>Actif stratégique</td>
+</tr>
+<tr>
+<td>Expérience sectorielle</td>
+<td>Connaissance du marché tunisien du verre</td>
+<td>Actif stratégique</td>
+</tr>
+</tbody></table>
+<h3>Rôle dans l&#39;alliance</h3>
+<ul>
+<li><strong>Direction technique et production</strong> : supervision de l&#39;ensemble du processus de fabrication</li>
+<li><strong>Contrôle qualité</strong> : garantie des standards de qualité sur chaque production</li>
+<li><strong>Gestion du parc machines</strong> : maintenance, optimisation, montée en capacité</li>
+<li><strong>Formation technique</strong> : encadrement et montée en compétences des opérateurs</li>
+<li><strong>Innovation produit</strong> : développement de nouvelles techniques de décoration</li>
+</ul>
+<h3>Mode de contribution des machines</h3>
+<p>Les machines, d&#39;une valeur estimée à 50 000 TND, restent la propriété de Ridha et sont <strong>mises à disposition de la SARL par contrat de location</strong>. Ce mécanisme protège Ridha en cas de dissolution de la société, tout en permettant à la SARL de bénéficier de l&#39;outil de production sans investissement initial lourd. Les conditions de location (loyer mensuel, durée, entretien) sont définies dans un contrat séparé annexé aux statuts.</p>
+<h2>4.2 Anthony — MEZZO GRP</h2>
+<h3>Parcours et expertise</h3>
+<p>Anthony dirige <strong>MEZZO GRP</strong>, structure spécialisée dans le développement commercial, le design de marque et la stratégie de positionnement. Son expertise couvre la conception d&#39;identités visuelles, le développement de réseaux commerciaux et l&#39;accompagnement stratégique d&#39;entreprises en phase de croissance.</p>
+<h3>Actifs apportés à l&#39;alliance</h3>
+<table>
+<thead>
+<tr>
+<th>Actif</th>
+<th>Description</th>
+<th>Valeur estimée</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Investissement financier</td>
+<td>Apport en capital et en compte courant d&#39;associé</td>
+<td>22 000 TND</td>
+</tr>
+<tr>
+<td>Local commercial + showroom</td>
+<td>Location et aménagement de l&#39;espace commercial</td>
+<td>Charge mensuelle</td>
+</tr>
+<tr>
+<td>Réseau commercial</td>
+<td>Contacts dans la GD, la cosmétique, l&#39;agroalimentaire</td>
+<td>Actif stratégique</td>
+</tr>
+<tr>
+<td>Compétences design/branding</td>
+<td>Création d&#39;identité visuelle, packaging, supports commerciaux</td>
+<td>Actif stratégique</td>
+</tr>
+</tbody></table>
+<h3>Rôle dans l&#39;alliance</h3>
+<ul>
+<li><strong>Direction commerciale</strong> : développement du portefeuille clients, négociation des contrats</li>
+<li><strong>Stratégie de marque</strong> : positionnement RIRO, identité visuelle, communication</li>
+<li><strong>Design et création</strong> : conception des visuels pour la personnalisation</li>
+<li><strong>Gestion du showroom</strong> : vitrine commerciale de l&#39;alliance</li>
+<li><strong>Développement stratégique</strong> : identification de nouveaux marchés et segments</li>
+<li><strong>Gestion administrative et financière</strong> : suivi budgétaire, relations bancaires, reporting</li>
+</ul>
+<hr>
+<h1>5. STRUCTURE DE L&#39;ALLIANCE</h1>
+<h2>5.1 Forme juridique : SARL</h2>
+<p>L&#39;alliance prend la forme d&#39;une <strong>Société à Responsabilité Limitée (SARL)</strong> de droit tunisien, conformément aux dispositions du Code des Sociétés Commerciales (CSC) — Loi n° 2000-93 du 3 novembre 2000.</p>
+<p>Le choix de la SARL se justifie par :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Avantage de la SARL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Responsabilité limitée</td>
+<td>Patrimoine personnel des associés protégé</td>
+</tr>
+<tr>
+<td>Souplesse de gestion</td>
+<td>Pas de conseil d&#39;administration obligatoire</td>
+</tr>
+<tr>
+<td>Capital minimum</td>
+<td>1 000 TND — faible barrière à l&#39;entrée</td>
+</tr>
+<tr>
+<td>Fiscalité</td>
+<td>Régime fiscal adapté aux PME</td>
+</tr>
+<tr>
+<td>Cession de parts</td>
+<td>Encadrée par les statuts — contrôle des entrées/sorties</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>Forme juridique reconnue par les banques et partenaires</td>
+</tr>
+</tbody></table>
+<h2>5.2 Répartition du capital</h2>
+<table>
+<thead>
+<tr>
+<th>Associé</th>
+<th>Parts sociales</th>
+<th>Pourcentage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ridha</td>
+<td>50 %</td>
+<td>50 %</td>
+</tr>
+<tr>
+<td>Anthony</td>
+<td>50 %</td>
+<td>50 %</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100 %</strong></td>
+<td><strong>100 %</strong></td>
+</tr>
+</tbody></table>
+<p>La répartition 50/50 traduit la parité de contribution : Ridha apporte le capital technique (machines, savoir-faire), Anthony apporte le capital financier et commercial (investissement, local, réseau). Aucun des deux ne peut réussir seul ; l&#39;alliance n&#39;a de sens que dans cette complémentarité.</p>
+<h2>5.3 Régime des actifs</h2>
+<h3>Machines (Ridha)</h3>
+<ul>
+<li><strong>Propriété</strong> : Ridha, à titre personnel</li>
+<li><strong>Mise à disposition</strong> : contrat de location au profit de la SARL</li>
+<li><strong>Valeur estimée</strong> : ~50 000 TND</li>
+<li><strong>Loyer mensuel</strong> : à définir (intégré dans les charges fixes)</li>
+<li><strong>Maintenance</strong> : à la charge de la SARL (usage courant) / Ridha (réparations structurelles)</li>
+<li><strong>Restitution</strong> : en cas de dissolution, les machines reviennent à Ridha</li>
+</ul>
+<h3>Local et showroom (Anthony)</h3>
+<ul>
+<li><strong>Propriété</strong> : bail commercial au nom d&#39;Anthony ou de la SARL</li>
+<li><strong>Aménagement</strong> : financé par l&#39;investissement initial d&#39;Anthony</li>
+<li><strong>Loyer</strong> : intégré dans les charges fixes mensuelles de la SARL</li>
+<li><strong>Restitution</strong> : en cas de dissolution, le bail est transféré ou résilié selon les termes du contrat</li>
+</ul>
+<h3>Investissement financier (Anthony)</h3>
+<ul>
+<li><strong>Montant</strong> : 22 000 TND</li>
+<li><strong>Nature</strong> : apport en capital social + compte courant d&#39;associé</li>
+<li><strong>Rémunération du compte courant</strong> : taux à convenir entre les parties (plafonné par la réglementation tunisienne)</li>
+<li><strong>Remboursement</strong> : prioritaire sur la distribution des bénéfices</li>
+</ul>
+<h2>5.4 Compte courant d&#39;associé</h2>
+<p>Le mécanisme du compte courant d&#39;associé permet à Anthony de prêter à la société des fonds au-delà de sa part dans le capital social. Ce mécanisme présente plusieurs avantages :</p>
+<ul>
+<li><strong>Flexibilité</strong> : le remboursement peut être échelonné selon la trésorerie</li>
+<li><strong>Protection</strong> : en cas de liquidation, le compte courant est remboursé avant la répartition du boni de liquidation</li>
+<li><strong>Fiscalité</strong> : les intérêts versés sont déductibles du résultat imposable de la SARL (dans les limites légales)</li>
+</ul>
+<h2>5.5 Gouvernance de base</h2>
+<table>
+<thead>
+<tr>
+<th>Organe</th>
+<th>Composition</th>
+<th>Fréquence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Assemblée Générale Ordinaire (AGO)</td>
+<td>Ridha + Anthony</td>
+<td>Annuelle (minimum)</td>
+</tr>
+<tr>
+<td>Réunion de direction</td>
+<td>Ridha + Anthony</td>
+<td>Hebdomadaire</td>
+</tr>
+<tr>
+<td>Comité opérationnel</td>
+<td>Ridha + Anthony + responsables</td>
+<td>Bimensuel</td>
+</tr>
+<tr>
+<td>Gérance</td>
+<td>Co-gérance ou gérance unique à définir</td>
+<td>Permanente</td>
+</tr>
+</tbody></table>
+<p>La question de la gérance (co-gérance ou gérance unique avec pouvoirs encadrés) est un point de négociation central, traité en détail dans la section <a href="#14-cadre-de-n%C3%A9gociation">Cadre de négociation</a>.</p>
+<hr>
+<h1>6. ANALYSE DE LA PROPOSITION DE VALEUR</h1>
+<h2>6.1 Valeur pour Ridha</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Bénéfice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accès au marché</td>
+<td>Passage d&#39;une activité principalement technique à une présence commerciale structurée</td>
+</tr>
+<tr>
+<td>Revenus stables</td>
+<td>Loyer des machines + part des bénéfices</td>
+</tr>
+<tr>
+<td>Montée en gamme</td>
+<td>Les compétences design d&#39;Anthony élèvent la qualité perçue de la production</td>
+</tr>
+<tr>
+<td>Réduction du risque</td>
+<td>Partage des charges fixes et de la pression commerciale</td>
+</tr>
+<tr>
+<td>Showroom dédié</td>
+<td>Vitrine professionnelle pour la production Bel Décor</td>
+</tr>
+<tr>
+<td>Capital d&#39;amorçage</td>
+<td>22 000 TND d&#39;investissement sans endettement personnel</td>
+</tr>
+</tbody></table>
+<h2>6.2 Valeur pour Anthony</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Bénéfice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Outil de production existant</td>
+<td>Pas besoin d&#39;investir dans les machines (50 000 TND économisés)</td>
+</tr>
+<tr>
+<td>Savoir-faire immédiat</td>
+<td>Production opérationnelle dès le lancement</td>
+</tr>
+<tr>
+<td>Marché porteur</td>
+<td>Positionnement sur un segment en croissance avec peu de concurrence directe</td>
+</tr>
+<tr>
+<td>Contrôle commercial</td>
+<td>Maîtrise du développement commercial et de la relation client</td>
+</tr>
+<tr>
+<td>Retour sur investissement</td>
+<td>ROI potentiel élevé grâce à des marges attractives</td>
+</tr>
+<tr>
+<td>Ancrage local</td>
+<td>Implantation dans le tissu industriel tunisien</td>
+</tr>
+</tbody></table>
+<h2>6.3 Valeur pour les clients</h2>
+<table>
+<thead>
+<tr>
+<th>Segment client</th>
+<th>Proposition de valeur RIRO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Grande distribution</td>
+<td>Produits personnalisés aux couleurs de l&#39;enseigne, prix compétitifs, livraison fiable</td>
+</tr>
+<tr>
+<td>Cosmétique</td>
+<td>Flacons et pots décorés avec finesse, petites séries possibles, design intégré</td>
+</tr>
+<tr>
+<td>Huile d&#39;olive</td>
+<td>Bouteilles premium pour l&#39;export, personnalisation complète, valorisation du produit</td>
+</tr>
+<tr>
+<td>Hôtellerie/Restauration</td>
+<td>Verrerie de table personnalisée, articles promotionnels, cadeaux d&#39;entreprise</td>
+</tr>
+<tr>
+<td>Événementiel</td>
+<td>Séries limitées, personnalisation sur mesure, délais courts</td>
+</tr>
+</tbody></table>
+<h2>6.4 Avantages concurrentiels durables</h2>
+<ol>
+<li><strong>Intégration verticale partielle</strong> : de la conception graphique à la production, en un seul interlocuteur</li>
+<li><strong>Flexibilité des volumes</strong> : de 100 à 60 000 pièces/mois, sans changement de fournisseur</li>
+<li><strong>Réactivité</strong> : production locale = délais réduits par rapport à l&#39;importation</li>
+<li><strong>Rapport qualité-prix</strong> : coûts de production tunisiens, qualité de finition professionnelle</li>
+<li><strong>Accompagnement design</strong> : service de création intégré, pas de sous-traitance graphique nécessaire</li>
+</ol>
+<hr>
+<h1>7. ANALYSE DE MARCHÉ</h1>
+<h2>7.1 Contexte macroéconomique tunisien</h2>
+<p>L&#39;économie tunisienne évolue dans un contexte de transition, marqué par :</p>
+<ul>
+<li>Un <strong>PIB</strong> en croissance modérée, avec des perspectives de reprise progressive</li>
+<li>Une <strong>inflation</strong> qui, bien que maîtrisée, impacte les coûts de production et le pouvoir d&#39;achat</li>
+<li>Un <strong>dinar</strong> sous pression, rendant les importations plus coûteuses — avantage pour la production locale</li>
+<li>Des <strong>incitations gouvernementales</strong> à l&#39;investissement industriel et à la substitution aux importations</li>
+<li>Un <strong>secteur des exportations</strong> (notamment huile d&#39;olive, dattes, textile) qui génère une demande de packaging de qualité</li>
+</ul>
+<h2>7.2 Dimensionnement du marché</h2>
+<h3>TAM — Total Addressable Market (Marché total adressable)</h3>
+<p>Le marché tunisien de l&#39;emballage en verre (toutes catégories) est estimé à <strong>150–200 millions TND/an</strong>, incluant la production locale (SOTUVER : ~80 % du marché), les importations et les segments de niche.</p>
+<h3>SAM — Serviceable Available Market (Marché disponible accessible)</h3>
+<p>Le segment de la <strong>décoration et personnalisation sur verre</strong> représente environ <strong>15–25 millions TND/an</strong>, incluant :</p>
+<ul>
+<li>Sérigraphie et décoration sur bouteilles et flacons</li>
+<li>Personnalisation pour la grande distribution</li>
+<li>Packaging premium pour l&#39;export (huile d&#39;olive, cosmétique)</li>
+<li>Verrerie promotionnelle et événementielle</li>
+</ul>
+<h3>SOM — Serviceable Obtainable Market (Marché réellement captable)</h3>
+<p>Avec les capacités de production de RIRO et le positionnement envisagé, le marché réellement captable à l&#39;horizon de 3 ans est estimé à <strong>300 000 – 500 000 TND/an</strong>, soit une part de marché de <strong>2 à 3 %</strong> du SAM.</p>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Estimation</th>
+<th>Horizon</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TAM</td>
+<td>150–200 M TND/an</td>
+<td>Marché total emballage verre Tunisie</td>
+</tr>
+<tr>
+<td>SAM</td>
+<td>15–25 M TND/an</td>
+<td>Segment décoration/personnalisation</td>
+</tr>
+<tr>
+<td>SOM</td>
+<td>300–500 K TND/an</td>
+<td>Part captable par RIRO à 3 ans</td>
+</tr>
+</tbody></table>
+<h2>7.3 Segmentation clients</h2>
+<h3>Segment 1 : Grande Distribution (GD)</h3>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clients cibles</td>
+<td>Monoprix, Carrefour, Géant, Magasin Général, enseignes régionales</td>
+</tr>
+<tr>
+<td>Besoin</td>
+<td>Verres, bocaux, articles ménagers aux couleurs de l&#39;enseigne</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Élevé (séries de 5 000 à 50 000 pièces)</td>
+</tr>
+<tr>
+<td>Prix unitaire</td>
+<td>~1,5 TND</td>
+</tr>
+<tr>
+<td>Marge brute</td>
+<td>35–45 %</td>
+</tr>
+<tr>
+<td>Cycle de vente</td>
+<td>2–4 semaines (référencement initial : 2–3 mois)</td>
+</tr>
+</tbody></table>
+<h3>Segment 2 : Cosmétique</h3>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clients cibles</td>
+<td>Marques tunisiennes de cosmétique naturelle, pharmacies, marques blanches</td>
+</tr>
+<tr>
+<td>Besoin</td>
+<td>Flacons, pots, emballages décorés avec finesse</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Moyen (séries de 500 à 10 000 pièces)</td>
+</tr>
+<tr>
+<td>Prix unitaire</td>
+<td>1,5–2,5 TND</td>
+</tr>
+<tr>
+<td>Marge brute</td>
+<td>45–55 %</td>
+</tr>
+<tr>
+<td>Cycle de vente</td>
+<td>3–6 semaines</td>
+</tr>
+</tbody></table>
+<h3>Segment 3 : Huile d&#39;olive</h3>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clients cibles</td>
+<td>Producteurs et exportateurs d&#39;huile d&#39;olive premium</td>
+</tr>
+<tr>
+<td>Besoin</td>
+<td>Bouteilles décorées pour la vente directe et l&#39;export</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Moyen à élevé (séries de 1 000 à 30 000 pièces)</td>
+</tr>
+<tr>
+<td>Prix unitaire</td>
+<td>1,0–2,0 TND</td>
+</tr>
+<tr>
+<td>Marge brute</td>
+<td>30–40 %</td>
+</tr>
+<tr>
+<td>Cycle de vente</td>
+<td>Saisonnier (pic : septembre–janvier)</td>
+</tr>
+</tbody></table>
+<h3>Segment 4 : Verre personnalisé divers</h3>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clients cibles</td>
+<td>Hôtels, restaurants, entreprises, organisateurs d&#39;événements</td>
+</tr>
+<tr>
+<td>Besoin</td>
+<td>Verrerie de table, cadeaux d&#39;entreprise, articles promotionnels</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Variable (séries de 100 à 5 000 pièces)</td>
+</tr>
+<tr>
+<td>Prix unitaire</td>
+<td>1,0–2,5 TND</td>
+</tr>
+<tr>
+<td>Marge brute</td>
+<td>40–55 %</td>
+</tr>
+<tr>
+<td>Cycle de vente</td>
+<td>1–3 semaines</td>
+</tr>
+</tbody></table>
+<h2>7.4 Analyse concurrentielle détaillée</h2>
+<table>
+<thead>
+<tr>
+<th>Concurrent</th>
+<th>Type</th>
+<th>Forces</th>
+<th>Faiblesses</th>
+<th>Menace pour RIRO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOTUVER</td>
+<td>Industriel</td>
+<td>Volume, prix bas, distribution nationale</td>
+<td>Pas de personnalisation, rigidité</td>
+<td>Faible (segments différents)</td>
+</tr>
+<tr>
+<td>Sérigraphes locaux</td>
+<td>Artisans</td>
+<td>Prix bas, proximité</td>
+<td>Qualité variable, pas de design</td>
+<td>Moyenne (même segment, offre inférieure)</td>
+</tr>
+<tr>
+<td>Importateurs Turquie/Chine</td>
+<td>Import</td>
+<td>Gamme large, prix compétitifs</td>
+<td>Délais (4–8 semaines), douane, change</td>
+<td>Moyenne (RIRO plus réactif)</td>
+</tr>
+<tr>
+<td>Ateliers de décoration</td>
+<td>Artisans</td>
+<td>Personnalisation fine</td>
+<td>Pas de volume, pas de structure commerciale</td>
+<td>Faible (pas de capacité industrielle)</td>
+</tr>
+</tbody></table>
+<p><strong>Conclusion</strong> : RIRO n&#39;a pas de concurrent direct qui combine capacité de production, qualité de personnalisation et structure commerciale. C&#39;est précisément cet espace stratégique que l&#39;alliance vise à occuper.</p>
+<hr>
+<h1>8. PLAN FINANCIER</h1>
+<h2>8.1 Investissement initial</h2>
+<h3>Tableau de déploiement des 22 000 TND</h3>
+<table>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Montant (TND)</th>
+<th>Pourcentage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Capital social SARL (part Anthony)</td>
+<td>5 000</td>
+<td>22,7 %</td>
+</tr>
+<tr>
+<td>Aménagement local + showroom</td>
+<td>6 000</td>
+<td>27,3 %</td>
+</tr>
+<tr>
+<td>Stock initial (encres, consommables, verre brut)</td>
+<td>4 000</td>
+<td>18,2 %</td>
+</tr>
+<tr>
+<td>Fonds de roulement (3 premiers mois)</td>
+<td>4 000</td>
+<td>18,2 %</td>
+</tr>
+<tr>
+<td>Frais de constitution (notaire, registre, patente)</td>
+<td>1 500</td>
+<td>6,8 %</td>
+</tr>
+<tr>
+<td>Communication et lancement commercial</td>
+<td>1 000</td>
+<td>4,5 %</td>
+</tr>
+<tr>
+<td>Réserve de sécurité</td>
+<td>500</td>
+<td>2,3 %</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>22 000</strong></td>
+<td><strong>100 %</strong></td>
+</tr>
+</tbody></table>
+<h2>8.2 Modèle de revenus</h2>
+<h3>Prix et marges par segment</h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Prix de vente unitaire (TND)</th>
+<th>Coût de revient unitaire (TND)</th>
+<th>Marge brute unitaire (TND)</th>
+<th>Marge brute (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Verre personnalisé (standard)</td>
+<td>1,0 – 2,5</td>
+<td>0,5 – 1,3</td>
+<td>0,5 – 1,2</td>
+<td>45–50 %</td>
+</tr>
+<tr>
+<td>Grande distribution</td>
+<td>1,5</td>
+<td>0,85</td>
+<td>0,65</td>
+<td>43 %</td>
+</tr>
+<tr>
+<td>Cosmétique</td>
+<td>1,5 – 2,5</td>
+<td>0,7 – 1,2</td>
+<td>0,8 – 1,3</td>
+<td>50–55 %</td>
+</tr>
+<tr>
+<td>Huile d&#39;olive</td>
+<td>1,0 – 2,0</td>
+<td>0,6 – 1,1</td>
+<td>0,4 – 0,9</td>
+<td>38–45 %</td>
+</tr>
+</tbody></table>
+<h3>Composition du coût de revient unitaire (base : pièce standard à 1,5 TND)</h3>
+<table>
+<thead>
+<tr>
+<th>Composante</th>
+<th>Coût (TND)</th>
+<th>Part</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Verre brut</td>
+<td>0,35</td>
+<td>41 %</td>
+</tr>
+<tr>
+<td>Encres et consommables</td>
+<td>0,15</td>
+<td>18 %</td>
+</tr>
+<tr>
+<td>Main-d&#39;œuvre directe</td>
+<td>0,20</td>
+<td>24 %</td>
+</tr>
+<tr>
+<td>Énergie (four, compresseur)</td>
+<td>0,08</td>
+<td>9 %</td>
+</tr>
+<tr>
+<td>Amortissement/location machines</td>
+<td>0,07</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td><strong>Total coût de revient</strong></td>
+<td><strong>0,85</strong></td>
+<td><strong>100 %</strong></td>
+</tr>
+</tbody></table>
+<h2>8.3 Structure des coûts mensuels</h2>
+<table>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Montant mensuel (TND)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loyer local + showroom</td>
+<td>2 500</td>
+</tr>
+<tr>
+<td>Location machines (Ridha)</td>
+<td>1 500</td>
+</tr>
+<tr>
+<td>Salaires (2 opérateurs + 1 assistant)</td>
+<td>3 500</td>
+</tr>
+<tr>
+<td>Matières premières et consommables</td>
+<td>2 000</td>
+</tr>
+<tr>
+<td>Énergie (électricité, gaz)</td>
+<td>1 000</td>
+</tr>
+<tr>
+<td>Transport et logistique</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Charges administratives et comptables</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Communication et marketing</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Divers et imprévus</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>Total charges fixes et semi-variables</strong></td>
+<td><strong>~12 000</strong></td>
+</tr>
+</tbody></table>
+<h2>8.4 Analyse du point mort</h2>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Charges fixes mensuelles</td>
+<td>~12 000 TND</td>
+</tr>
+<tr>
+<td>Prix de vente moyen pondéré</td>
+<td>1,50 TND</td>
+</tr>
+<tr>
+<td>Coût variable moyen par pièce</td>
+<td>0,55 TND (hors charges fixes)</td>
+</tr>
+<tr>
+<td>Marge de contribution par pièce</td>
+<td>0,95 TND</td>
+</tr>
+<tr>
+<td><strong>Point mort (pièces/mois)</strong></td>
+<td><strong>~8 000 pièces</strong> (arrondi pour intégrer les charges semi-variables)</td>
+</tr>
+<tr>
+<td>Point mort en CA</td>
+<td>~12 000 TND/mois</td>
+</tr>
+<tr>
+<td>Capacité de production mensuelle (22 jours)</td>
+<td>44 000 pièces</td>
+</tr>
+<tr>
+<td>Taux d&#39;utilisation au point mort</td>
+<td>18 %</td>
+</tr>
+</tbody></table>
+<p><strong>Observation critique</strong> : le point mort ne représente que 18 % de la capacité de production. Cette marge de sécurité considérable constitue l&#39;un des atouts majeurs du modèle économique.</p>
+<h2>8.5 Projections sur 5 ans</h2>
+<h3>Année 1 — Phase de lancement et de montée en charge</h3>
+<table>
+<thead>
+<tr>
+<th>Période</th>
+<th>CA mensuel estimé (TND)</th>
+<th>Pièces/mois</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mois 1–3</td>
+<td>5 000 – 10 000</td>
+<td>3 300 – 6 700</td>
+<td>Phase d&#39;amorçage, premiers clients</td>
+</tr>
+<tr>
+<td>Mois 3–6</td>
+<td>15 000 – 20 000</td>
+<td>10 000 – 13 300</td>
+<td>Montée en charge, contrats GD</td>
+</tr>
+<tr>
+<td>Mois 6–12</td>
+<td>25 000 – 30 000</td>
+<td>16 700 – 20 000</td>
+<td>Stabilisation, diversification</td>
+</tr>
+<tr>
+<td><strong>Moyenne annuelle</strong></td>
+<td><strong>~18 000</strong></td>
+<td><strong>~12 000</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CA annuel estimé (An 1)</strong></td>
+<td><strong>~216 000 TND</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3>Années 2 à 5 — Croissance et consolidation</h3>
+<table>
+<thead>
+<tr>
+<th>Année</th>
+<th>CA mensuel moyen (TND)</th>
+<th>CA annuel (TND)</th>
+<th>Marge nette estimée (%)</th>
+<th>Résultat net estimé (TND)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>An 1</td>
+<td>18 000</td>
+<td>216 000</td>
+<td>5–10 %</td>
+<td>10 800 – 21 600</td>
+</tr>
+<tr>
+<td>An 2</td>
+<td>30 000 – 40 000</td>
+<td>360 000 – 480 000</td>
+<td>12–18 %</td>
+<td>43 200 – 86 400</td>
+</tr>
+<tr>
+<td>An 3</td>
+<td>40 000 – 55 000</td>
+<td>480 000 – 660 000</td>
+<td>15–20 %</td>
+<td>72 000 – 132 000</td>
+</tr>
+<tr>
+<td>An 4</td>
+<td>50 000 – 70 000</td>
+<td>600 000 – 840 000</td>
+<td>18–22 %</td>
+<td>108 000 – 184 800</td>
+</tr>
+<tr>
+<td>An 5</td>
+<td>60 000 – 85 000</td>
+<td>720 000 – 1 020 000</td>
+<td>20–25 %</td>
+<td>144 000 – 255 000</td>
+</tr>
+</tbody></table>
+<h3>Hypothèses clés des projections</h3>
+<ul>
+<li>Croissance organique progressive, sans investissement lourd supplémentaire avant l&#39;an 3</li>
+<li>Diversification continue des segments clients</li>
+<li>Maintien des marges par l&#39;optimisation des coûts de production</li>
+<li>Pas de dégradation significative du contexte macroéconomique</li>
+<li>Recrutement progressif en fonction du volume (1–2 opérateurs supplémentaires en an 2)</li>
+</ul>
+<h2>8.6 Analyse du retour sur investissement (ROI)</h2>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Valeur estimée</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Investissement total (Anthony)</td>
+<td>22 000 TND</td>
+</tr>
+<tr>
+<td>Délai de récupération (payback)</td>
+<td>10–14 mois</td>
+</tr>
+<tr>
+<td>ROI à 2 ans</td>
+<td>90–190 %</td>
+</tr>
+<tr>
+<td>ROI à 5 ans</td>
+<td>350–600 %</td>
+</tr>
+<tr>
+<td>Valeur nette actualisée (VNA, taux 12 %)</td>
+<td>120 000 – 250 000 TND (à 5 ans)</td>
+</tr>
+</tbody></table>
+<p><strong>Conclusion</strong> : le modèle économique présente un profil de rentabilité attractif, avec un point mort bas, des marges saines et un potentiel de croissance significatif. L&#39;investissement initial de 22 000 TND est récupérable dans un délai raisonnable, sous réserve d&#39;une exécution commerciale disciplinée.</p>
+<hr>
+<h1>9. FEUILLE DE ROUTE</h1>
+<h2>Phase 1 : Fondation (Mois 0 à 1)</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Responsable</th>
+<th>Livrable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Constitution de la SARL</td>
+<td>Anthony + Ridha</td>
+<td>Statuts signés, registre du commerce</td>
+</tr>
+<tr>
+<td>Ouverture du compte bancaire</td>
+<td>Anthony</td>
+<td>Compte SARL opérationnel</td>
+</tr>
+<tr>
+<td>Signature du contrat de location machines</td>
+<td>Ridha</td>
+<td>Contrat signé</td>
+</tr>
+<tr>
+<td>Signature du bail commercial</td>
+<td>Anthony</td>
+<td>Bail signé</td>
+</tr>
+<tr>
+<td>Aménagement du local et du showroom</td>
+<td>Anthony</td>
+<td>Local opérationnel</td>
+</tr>
+<tr>
+<td>Installation et calibrage des machines</td>
+<td>Ridha</td>
+<td>Machines prêtes à produire</td>
+</tr>
+<tr>
+<td>Création de l&#39;identité visuelle RIRO</td>
+<td>Anthony</td>
+<td>Logo, charte graphique, supports</td>
+</tr>
+</tbody></table>
+<h2>Phase 2 : Amorçage commercial (Mois 1 à 3)</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Responsable</th>
+<th>Livrable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Production d&#39;échantillons (catalogue)</td>
+<td>Ridha</td>
+<td>20–30 références échantillons</td>
+</tr>
+<tr>
+<td>Prospection GD (Monoprix, Carrefour, etc.)</td>
+<td>Anthony</td>
+<td>5–10 rendez-vous qualifiés</td>
+</tr>
+<tr>
+<td>Prospection cosmétique et huile d&#39;olive</td>
+<td>Anthony</td>
+<td>5–10 contacts qualifiés</td>
+</tr>
+<tr>
+<td>Premières commandes pilotes</td>
+<td>Ridha + Anthony</td>
+<td>3–5 commandes livrées</td>
+</tr>
+<tr>
+<td>Mise en place du processus de production</td>
+<td>Ridha</td>
+<td>Workflow standardisé</td>
+</tr>
+<tr>
+<td>Lancement de la communication (réseaux, site)</td>
+<td>Anthony</td>
+<td>Présence digitale active</td>
+</tr>
+</tbody></table>
+<h2>Phase 3 : Montée en charge (Mois 3 à 6)</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Responsable</th>
+<th>Livrable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conversion des pilotes en contrats récurrents</td>
+<td>Anthony</td>
+<td>5–8 clients réguliers</td>
+</tr>
+<tr>
+<td>Optimisation des coûts de production</td>
+<td>Ridha</td>
+<td>Réduction du coût unitaire de 5–10 %</td>
+</tr>
+<tr>
+<td>Recrutement d&#39;un 2ᵉ opérateur si nécessaire</td>
+<td>Ridha + Anthony</td>
+<td>Capacité de production augmentée</td>
+</tr>
+<tr>
+<td>Développement du segment export (huile d&#39;olive)</td>
+<td>Anthony</td>
+<td>2–3 clients export</td>
+</tr>
+<tr>
+<td>Mise en place du suivi financier mensuel</td>
+<td>Anthony</td>
+<td>Tableau de bord financier</td>
+</tr>
+</tbody></table>
+<h2>Phase 4 : Consolidation (Mois 6 à 12)</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Responsable</th>
+<th>Livrable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atteinte du CA cible (25 000–30 000 TND/mois)</td>
+<td>Ridha + Anthony</td>
+<td>CA stabilisé</td>
+</tr>
+<tr>
+<td>Diversification des segments clients</td>
+<td>Anthony</td>
+<td>15–20 clients actifs</td>
+</tr>
+<tr>
+<td>Évaluation de la gouvernance et ajustements</td>
+<td>Ridha + Anthony</td>
+<td>Bilan de gouvernance</td>
+</tr>
+<tr>
+<td>Planification de la phase d&#39;expansion</td>
+<td>Anthony</td>
+<td>Plan d&#39;expansion validé</td>
+</tr>
+<tr>
+<td>Constitution d&#39;une réserve de trésorerie</td>
+<td>Anthony</td>
+<td>2 mois de charges en réserve</td>
+</tr>
+</tbody></table>
+<h2>Phase 5 : Expansion (Année 2 et au-delà)</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Responsable</th>
+<th>Livrable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Investissement dans de nouvelles machines</td>
+<td>Ridha + Anthony</td>
+<td>Capacité doublée</td>
+</tr>
+<tr>
+<td>Développement de nouveaux procédés (gravure laser, impression UV)</td>
+<td>Ridha</td>
+<td>Nouvelles techniques maîtrisées</td>
+</tr>
+<tr>
+<td>Expansion géographique (régions, export Libye/Algérie)</td>
+<td>Anthony</td>
+<td>Nouveaux marchés pénétrés</td>
+</tr>
+<tr>
+<td>Recrutement d&#39;un responsable commercial</td>
+<td>Anthony</td>
+<td>Équipe commerciale autonome</td>
+</tr>
+<tr>
+<td>Étude de faisabilité pour un 2ᵉ site de production</td>
+<td>Ridha + Anthony</td>
+<td>Étude finalisée</td>
+</tr>
+<tr>
+<td>Objectif CA : 40 000+ TND/mois</td>
+<td>Ridha + Anthony</td>
+<td>Croissance soutenue</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>10. GOUVERNANCE ET OPÉRATIONS</h1>
+<h2>10.1 Organigramme</h2>
+<pre><code>                    ┌─────────────────────┐
+                    │  ASSEMBLÉE GÉNÉRALE  │
+                    │   Ridha + Anthony    │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────┴──────────┐
+                    │      GÉRANCE        │
+                    │  (Co-gérance ou     │
+                    │   gérance unique)   │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                                 │
+    ┌─────────┴─────────┐            ┌─────────┴──────────┐
+    │  PÔLE TECHNIQUE   │            │  PÔLE COMMERCIAL   │
+    │     Ridha         │            │     Anthony        │
+    │                   │            │                    │
+    │ • Production      │            │ • Vente            │
+    │ • Qualité         │            │ • Design           │
+    │ • Maintenance     │            │ • Marketing        │
+    │ • Innovation      │            │ • Administration   │
+    └───────────────────┘            └────────────────────┘
+</code></pre>
+<h2>10.2 Matrice de décision</h2>
+<table>
+<thead>
+<tr>
+<th>Type de décision</th>
+<th>Exemples</th>
+<th>Mécanisme</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Stratégique</strong></td>
+<td>Investissement &gt; 5 000 TND, nouveau marché, recrutement cadre, modification des statuts</td>
+<td>Unanimité (Ridha + Anthony)</td>
+</tr>
+<tr>
+<td><strong>Opérationnelle courante</strong></td>
+<td>Commande de matières premières, planning production, devis client</td>
+<td>Décision du pôle concerné</td>
+</tr>
+<tr>
+<td><strong>Financière</strong></td>
+<td>Dépense &gt; 2 000 TND hors budget approuvé</td>
+<td>Accord conjoint</td>
+</tr>
+<tr>
+<td><strong>Commerciale</strong></td>
+<td>Tarification, conditions de vente, remises &gt; 10 %</td>
+<td>Anthony (avec consultation Ridha si impact production)</td>
+</tr>
+<tr>
+<td><strong>Technique</strong></td>
+<td>Choix de procédé, paramètres de production, qualité</td>
+<td>Ridha (avec consultation Anthony si impact commercial)</td>
+</tr>
+<tr>
+<td><strong>Urgente</strong></td>
+<td>Panne machine, réclamation client critique, problème de trésorerie</td>
+<td>Décision du gérant compétent, information immédiate de l&#39;autre associé</td>
+</tr>
+</tbody></table>
+<h2>10.3 Protocole de communication</h2>
+<h3>Communication régulière</h3>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Fréquence</th>
+<th>Objet</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Réunion hebdomadaire</td>
+<td>Chaque lundi</td>
+<td>Point production, commercial, trésorerie</td>
+</tr>
+<tr>
+<td>Message quotidien (WhatsApp/Slack)</td>
+<td>Quotidien</td>
+<td>Suivi opérationnel, alertes</td>
+</tr>
+<tr>
+<td>Comité mensuel</td>
+<td>1ᵉʳ de chaque mois</td>
+<td>Bilan financier, KPIs, décisions stratégiques</td>
+</tr>
+<tr>
+<td>Assemblée annuelle</td>
+<td>Annuelle</td>
+<td>Approbation des comptes, affectation du résultat</td>
+</tr>
+</tbody></table>
+<h3>Règles de communication</h3>
+<ol>
+<li>Toute décision stratégique fait l&#39;objet d&#39;un <strong>compte-rendu écrit</strong> signé par les deux associés</li>
+<li>Les <strong>désaccords</strong> sont traités selon le protocole de résolution des conflits (voir ci-dessous)</li>
+<li>Aucune communication externe engageante (contrat, partenariat) n&#39;est émise sans validation des deux associés</li>
+<li>Les <strong>données financières</strong> sont accessibles en temps réel aux deux associés</li>
+</ol>
+<h2>10.4 Reporting</h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Fréquence</th>
+<th>Responsable</th>
+<th>Destinataires</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tableau de bord financier</td>
+<td>Mensuel</td>
+<td>Anthony</td>
+<td>Ridha + Anthony</td>
+</tr>
+<tr>
+<td>Rapport de production</td>
+<td>Hebdomadaire</td>
+<td>Ridha</td>
+<td>Anthony</td>
+</tr>
+<tr>
+<td>Rapport commercial</td>
+<td>Hebdomadaire</td>
+<td>Anthony</td>
+<td>Ridha</td>
+</tr>
+<tr>
+<td>États financiers</td>
+<td>Trimestriel</td>
+<td>Comptable externe</td>
+<td>Ridha + Anthony</td>
+</tr>
+<tr>
+<td>Bilan annuel</td>
+<td>Annuel</td>
+<td>Comptable externe</td>
+<td>AGO</td>
+</tr>
+</tbody></table>
+<h2>10.5 Résolution des conflits</h2>
+<p>L&#39;alliance 50/50 comporte un risque inhérent de blocage décisionnel. Le protocole suivant est mis en place pour prévenir et résoudre les situations de désaccord :</p>
+<h3>Niveau 1 : Dialogue direct</h3>
+<ul>
+<li>Les associés discutent du désaccord lors d&#39;une réunion dédiée</li>
+<li>Délai : 48 heures pour trouver un terrain d&#39;entente</li>
+<li>Documentation : compte-rendu des positions de chacun</li>
+</ul>
+<h3>Niveau 2 : Médiation informelle</h3>
+<ul>
+<li>En cas d&#39;échec du niveau 1, un <strong>tiers de confiance</strong> (choisi d&#39;un commun accord) intervient comme médiateur</li>
+<li>Délai : 2 semaines</li>
+<li>Le médiateur n&#39;a pas de pouvoir de décision — il facilite le dialogue</li>
+</ul>
+<h3>Niveau 3 : Médiation formelle</h3>
+<ul>
+<li>Recours à un <strong>médiateur professionnel</strong> (Centre de Médiation et d&#39;Arbitrage de Tunis — CMAT)</li>
+<li>Délai : 1 mois</li>
+<li>Coûts partagés 50/50</li>
+</ul>
+<h3>Niveau 4 : Arbitrage</h3>
+<ul>
+<li>Si la médiation échoue, les parties soumettent le différend à l&#39;<strong>arbitrage</strong> conformément aux règles du CMAT</li>
+<li>La sentence arbitrale est <strong>exécutoire et définitive</strong></li>
+<li>Ce niveau constitue le dernier recours avant l&#39;activation des clauses de sortie</li>
+</ul>
+<hr>
+<h1>11. GESTION DE LA PERFORMANCE</h1>
+<h2>11.1 KPIs financiers</h2>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Objectif M6</th>
+<th>Objectif M12</th>
+<th>Objectif An 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chiffre d&#39;affaires mensuel</td>
+<td>15 000 TND</td>
+<td>25 000 TND</td>
+<td>35 000 TND</td>
+</tr>
+<tr>
+<td>Marge brute</td>
+<td>40 %</td>
+<td>43 %</td>
+<td>45 %</td>
+</tr>
+<tr>
+<td>Marge nette</td>
+<td>5 %</td>
+<td>12 %</td>
+<td>18 %</td>
+</tr>
+<tr>
+<td>Trésorerie disponible</td>
+<td>&gt; 5 000 TND</td>
+<td>&gt; 10 000 TND</td>
+<td>&gt; 20 000 TND</td>
+</tr>
+<tr>
+<td>Créances clients (délai moyen)</td>
+<td>&lt; 45 jours</td>
+<td>&lt; 30 jours</td>
+<td>&lt; 30 jours</td>
+</tr>
+<tr>
+<td>Compte courant d&#39;associé remboursé</td>
+<td>0 %</td>
+<td>30 %</td>
+<td>80 %</td>
+</tr>
+</tbody></table>
+<h2>11.2 KPIs opérationnels</h2>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Objectif M6</th>
+<th>Objectif M12</th>
+<th>Objectif An 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Capacité utilisée</td>
+<td>30 %</td>
+<td>50 %</td>
+<td>70 %</td>
+</tr>
+<tr>
+<td>Taux de rebut</td>
+<td>&lt; 5 %</td>
+<td>&lt; 3 %</td>
+<td>&lt; 2 %</td>
+</tr>
+<tr>
+<td>Délai de livraison moyen</td>
+<td>10 jours</td>
+<td>7 jours</td>
+<td>5 jours</td>
+</tr>
+<tr>
+<td>Pièces produites/jour</td>
+<td>800</td>
+<td>1 200</td>
+<td>1 600</td>
+</tr>
+<tr>
+<td>Temps d&#39;arrêt machine</td>
+<td>&lt; 10 %</td>
+<td>&lt; 5 %</td>
+<td>&lt; 3 %</td>
+</tr>
+</tbody></table>
+<h2>11.3 KPIs clients</h2>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Objectif M6</th>
+<th>Objectif M12</th>
+<th>Objectif An 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nombre de clients actifs</td>
+<td>8</td>
+<td>15</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Taux de réachat</td>
+<td>50 %</td>
+<td>65 %</td>
+<td>75 %</td>
+</tr>
+<tr>
+<td>Panier moyen par commande</td>
+<td>2 000 TND</td>
+<td>2 500 TND</td>
+<td>3 000 TND</td>
+</tr>
+<tr>
+<td>Satisfaction client (NPS)</td>
+<td>&gt; 30</td>
+<td>&gt; 50</td>
+<td>&gt; 60</td>
+</tr>
+<tr>
+<td>Nombre de segments actifs</td>
+<td>2</td>
+<td>3</td>
+<td>4+</td>
+</tr>
+</tbody></table>
+<h2>11.4 KPIs de la relation entre associés</h2>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Méthode de suivi</th>
+<th>Fréquence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Respect des engagements mutuels</td>
+<td>Autoévaluation croisée</td>
+<td>Trimestrielle</td>
+</tr>
+<tr>
+<td>Qualité de la communication</td>
+<td>Réunion dédiée</td>
+<td>Semestrielle</td>
+</tr>
+<tr>
+<td>Alignement stratégique</td>
+<td>Discussion structurée</td>
+<td>Annuelle</td>
+</tr>
+<tr>
+<td>Satisfaction de chaque associé</td>
+<td>Échange confidentiel (avec médiateur si nécessaire)</td>
+<td>Annuelle</td>
+</tr>
+<tr>
+<td>Respect de la matrice de décision</td>
+<td>Revue des décisions prises</td>
+<td>Trimestrielle</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>12. ÉVALUATION DES RISQUES</h1>
+<h2>12.1 Matrice des risques</h2>
+<table>
+<thead>
+<tr>
+<th>Risque</th>
+<th>Probabilité</th>
+<th>Impact</th>
+<th>Niveau</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blocage décisionnel 50/50</td>
+<td>Élevée</td>
+<td>Élevé</td>
+<td><strong>Critique</strong></td>
+<td>Protocole de résolution, clause de sortie</td>
+</tr>
+<tr>
+<td>Dilution non consentie</td>
+<td>Moyenne</td>
+<td>Élevé</td>
+<td><strong>Élevé</strong></td>
+<td>Clause d&#39;agrément, droit de préemption</td>
+</tr>
+<tr>
+<td>Perte de contrôle commercial (Anthony)</td>
+<td>Moyenne</td>
+<td>Élevé</td>
+<td><strong>Élevé</strong></td>
+<td>Exclusivité commerciale dans les statuts</td>
+</tr>
+<tr>
+<td>Retrait des machines (Ridha)</td>
+<td>Faible</td>
+<td>Très élevé</td>
+<td><strong>Élevé</strong></td>
+<td>Contrat de location avec préavis de 12 mois</td>
+</tr>
+<tr>
+<td>Défaillance d&#39;un associé</td>
+<td>Faible</td>
+<td>Très élevé</td>
+<td><strong>Élevé</strong></td>
+<td>Assurance homme-clé, clause de rachat</td>
+</tr>
+<tr>
+<td>Perte d&#39;un client majeur</td>
+<td>Moyenne</td>
+<td>Moyen</td>
+<td><strong>Moyen</strong></td>
+<td>Diversification du portefeuille clients</td>
+</tr>
+<tr>
+<td>Panne machine prolongée</td>
+<td>Faible</td>
+<td>Élevé</td>
+<td><strong>Moyen</strong></td>
+<td>Maintenance préventive, fonds de réserve</td>
+</tr>
+<tr>
+<td>Hausse des coûts (matières premières)</td>
+<td>Élevée</td>
+<td>Moyen</td>
+<td><strong>Moyen</strong></td>
+<td>Révision tarifaire, stockage stratégique</td>
+</tr>
+<tr>
+<td>Entrée d&#39;un concurrent direct</td>
+<td>Faible</td>
+<td>Moyen</td>
+<td><strong>Moyen</strong></td>
+<td>Avantage du premier entrant, fidélisation</td>
+</tr>
+<tr>
+<td>Dégradation macroéconomique</td>
+<td>Moyenne</td>
+<td>Moyen</td>
+<td><strong>Moyen</strong></td>
+<td>Structure de coûts flexible, export</td>
+</tr>
+</tbody></table>
+<h2>12.2 Risques spécifiques à l&#39;alliance 50/50</h2>
+<h3>Risque 1 : Blocage décisionnel</h3>
+<p><strong>Description</strong> : Avec une répartition 50/50, aucun associé ne dispose de la majorité. En cas de désaccord persistant, la société peut se retrouver paralysée.</p>
+<p><strong>Probabilité</strong> : Élevée (inhérente à toute structure paritaire)</p>
+<p><strong>Mitigation</strong> :</p>
+<ul>
+<li>Matrice de décision claire avec zones d&#39;autonomie pour chaque pôle</li>
+<li>Protocole de résolution des conflits en 4 niveaux</li>
+<li>Clause de « shotgun » (offre de rachat obligatoire) en dernier recours</li>
+<li>Possibilité de nommer un gérant tiers en cas de blocage prolongé</li>
+</ul>
+<h3>Risque 2 : Dilution non consentie</h3>
+<p><strong>Description</strong> : L&#39;un des associés pourrait chercher à introduire un tiers au capital, diluant ainsi la participation de l&#39;autre.</p>
+<p><strong>Probabilité</strong> : Moyenne</p>
+<p><strong>Mitigation</strong> :</p>
+<ul>
+<li><strong>Clause d&#39;agrément</strong> : toute cession de parts nécessite l&#39;accord de l&#39;autre associé</li>
+<li><strong>Droit de préemption</strong> : en cas de cession autorisée, l&#39;autre associé a priorité pour racheter les parts</li>
+<li><strong>Clause anti-dilution</strong> : toute augmentation de capital respecte les droits de souscription proportionnels</li>
+</ul>
+<h3>Risque 3 : Perte de contrôle commercial (risque pour Anthony)</h3>
+<p><strong>Description</strong> : Si Ridha développe ses propres canaux commerciaux ou travaille directement avec les clients de RIRO via Bel Décor, Anthony perd sa valeur ajoutée dans l&#39;alliance.</p>
+<p><strong>Probabilité</strong> : Moyenne</p>
+<p><strong>Mitigation</strong> :</p>
+<ul>
+<li><strong>Clause de non-concurrence</strong> : Ridha s&#39;engage à ne pas exercer d&#39;activité concurrente directe pendant la durée de l&#39;alliance et pendant 2 ans après sa dissolution</li>
+<li><strong>Exclusivité de la relation client</strong> : toute la relation commerciale passe par RIRO, pas par Bel Décor directement</li>
+<li><strong>Transparence totale</strong> : accès partagé au fichier clients et aux données commerciales</li>
+</ul>
+<h3>Risque 4 : Retrait des machines (risque pour Anthony)</h3>
+<p><strong>Description</strong> : Les machines appartiennent à Ridha. S&#39;il décide de les retirer, la production s&#39;arrête immédiatement.</p>
+<p><strong>Probabilité</strong> : Faible (mais impact catastrophique)</p>
+<p><strong>Mitigation</strong> :</p>
+<ul>
+<li><strong>Contrat de location ferme</strong> : durée minimale de 3 ans, renouvelable</li>
+<li><strong>Préavis de retrait</strong> : minimum 12 mois</li>
+<li><strong>Indemnité de retrait anticipé</strong> : compensation financière si retrait avant le terme</li>
+<li><strong>Option d&#39;achat</strong> : la SARL peut exercer une option d&#39;achat des machines à leur valeur résiduelle</li>
+</ul>
+<h3>Risque 5 : Lignes rouges de Ridha</h3>
+<p>Il est essentiel d&#39;identifier et de respecter les lignes rouges de chaque associé. Pour Ridha, les points non négociables identifiés sont :</p>
+<table>
+<thead>
+<tr>
+<th>Ligne rouge</th>
+<th>Justification</th>
+<th>Réponse RIRO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Propriété des machines</td>
+<td>Ce sont ses actifs personnels, fruit de son investissement</td>
+<td>Location, pas d&#39;apport en nature</td>
+</tr>
+<tr>
+<td>Contrôle technique</td>
+<td>C&#39;est son domaine d&#39;expertise</td>
+<td>Autonomie totale sur le pôle technique</td>
+</tr>
+<tr>
+<td>Réputation Bel Décor</td>
+<td>Sa marque personnelle ne doit pas être affectée</td>
+<td>RIRO est une marque distincte</td>
+</tr>
+<tr>
+<td>Pas d&#39;endettement personnel</td>
+<td>Il ne veut pas garantir les dettes de la SARL</td>
+<td>SARL = responsabilité limitée au capital</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>13. CADRE JURIDIQUE</h1>
+<h2>13.1 SARL de droit tunisien — Dispositions clés</h2>
+<p>La SARL est régie par les articles 90 à 142 du Code des Sociétés Commerciales (CSC) tunisien. Les dispositions clés applicables à RIRO sont les suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Disposition</th>
+<th>Article CSC</th>
+<th>Application RIRO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Capital minimum</td>
+<td>Art. 92</td>
+<td>1 000 TND minimum — capital fixé à 10 000 TND</td>
+</tr>
+<tr>
+<td>Nombre d&#39;associés</td>
+<td>Art. 90</td>
+<td>2 associés (Ridha + Anthony)</td>
+</tr>
+<tr>
+<td>Responsabilité</td>
+<td>Art. 90</td>
+<td>Limitée aux apports</td>
+</tr>
+<tr>
+<td>Gérance</td>
+<td>Art. 105-116</td>
+<td>Co-gérance ou gérance unique</td>
+</tr>
+<tr>
+<td>Cession de parts</td>
+<td>Art. 109-110</td>
+<td>Soumise à l&#39;agrément des associés</td>
+</tr>
+<tr>
+<td>Assemblée générale</td>
+<td>Art. 126-131</td>
+<td>Majorité requise selon la nature des décisions</td>
+</tr>
+<tr>
+<td>Dissolution</td>
+<td>Art. 138-142</td>
+<td>Conditions et procédure encadrées</td>
+</tr>
+</tbody></table>
+<h2>13.2 Statuts de la SARL — Clauses essentielles</h2>
+<p>Les statuts de RIRO SARL doivent impérativement inclure les clauses suivantes :</p>
+<h3>Clauses de protection des associés</h3>
+<ol>
+<li><p><strong>Clause d&#39;agrément</strong> (art. 109 CSC) : Toute cession de parts à un tiers étranger à la société est soumise à l&#39;agrément de l&#39;autre associé, statuant à la majorité des trois quarts du capital social.</p>
+</li>
+<li><p><strong>Droit de préemption</strong> : En cas de cession autorisée, l&#39;associé non cédant dispose d&#39;un droit de préemption lui permettant de racheter les parts aux mêmes conditions que celles proposées au tiers.</p>
+</li>
+<li><p><strong>Clause anti-dilution</strong> : Toute augmentation de capital se fait proportionnellement aux participations existantes, sauf accord unanime des associés.</p>
+</li>
+<li><p><strong>Clause de non-concurrence</strong> : Chaque associé s&#39;interdit d&#39;exercer, directement ou indirectement, une activité concurrente à celle de RIRO, pendant la durée de l&#39;alliance et pendant une période de 24 mois suivant son départ.</p>
+</li>
+<li><p><strong>Clause de confidentialité</strong> : Les informations commerciales, techniques et financières de la société sont strictement confidentielles et ne peuvent être divulguées à des tiers.</p>
+</li>
+</ol>
+<h3>Clauses de gouvernance</h3>
+<ol start="6">
+<li><p><strong>Clause de gérance</strong> : Les modalités de la gérance (co-gérance ou gérance unique avec pouvoirs définis) sont précisées dans les statuts.</p>
+</li>
+<li><p><strong>Clause de décision</strong> : Les décisions sont classées par catégorie (stratégique, opérationnelle, financière) avec des seuils de majorité différenciés.</p>
+</li>
+<li><p><strong>Clause de blocage</strong> : En cas de désaccord persistant sur une décision stratégique, les associés s&#39;engagent à suivre le protocole de résolution des conflits défini dans le pacte d&#39;associés.</p>
+</li>
+</ol>
+<h3>Clauses de sortie</h3>
+<ol start="9">
+<li><p><strong>Clause de « shotgun »</strong> (offre de rachat croisé) : Si le blocage persiste après l&#39;épuisement des voies de médiation, l&#39;un des associés peut formuler une offre de rachat des parts de l&#39;autre, qui dispose alors du droit d&#39;accepter ou de retourner l&#39;offre (racheter les parts de l&#39;offreur au même prix).</p>
+</li>
+<li><p><strong>Clause de dissolution amiable</strong> : Les conditions et la procédure de dissolution amiable sont définies en amont.</p>
+</li>
+</ol>
+<h2>13.3 Protection des actifs</h2>
+<h3>Machines de Ridha</h3>
+<p>Le contrat de location des machines constitue un document juridique distinct des statuts, mais annexé au pacte d&#39;associés. Il prévoit :</p>
+<ul>
+<li><strong>Inventaire détaillé</strong> des machines avec valeur estimée</li>
+<li><strong>Durée ferme</strong> de 3 ans, renouvelable par tacite reconduction</li>
+<li><strong>Loyer mensuel</strong> de 1 500 TND (révisable annuellement selon l&#39;indice des prix)</li>
+<li><strong>Obligation d&#39;assurance</strong> : la SARL assure les machines contre les risques courants</li>
+<li><strong>Maintenance courante</strong> : à la charge de la SARL</li>
+<li><strong>Réparations structurelles</strong> : à la charge de Ridha</li>
+<li><strong>Préavis de non-renouvellement</strong> : 12 mois</li>
+<li><strong>Option d&#39;achat</strong> : la SARL peut acquérir les machines à leur valeur résiduelle déterminée par un expert indépendant</li>
+</ul>
+<h3>Propriété intellectuelle</h3>
+<ul>
+<li>La marque <strong>RIRO</strong> est déposée au nom de la SARL auprès de l&#39;INNORPI (Institut National de la Normalisation et de la Propriété Intellectuelle)</li>
+<li>Les <strong>créations graphiques</strong> réalisées par Anthony pour les clients de RIRO sont la propriété de la SARL</li>
+<li>Le <strong>savoir-faire technique</strong> de Ridha reste sa propriété personnelle (non transférable)</li>
+<li>Les <strong>fichiers clients</strong> et données commerciales sont la propriété de la SARL</li>
+</ul>
+<h2>13.4 Non-concurrence</h2>
+<p>La clause de non-concurrence s&#39;applique aux deux associés dans les termes suivants :</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Périmètre géographique</td>
+<td>République Tunisienne</td>
+</tr>
+<tr>
+<td>Périmètre d&#39;activité</td>
+<td>Décoration, personnalisation et sérigraphie sur verre</td>
+</tr>
+<tr>
+<td>Durée pendant l&#39;alliance</td>
+<td>Toute la durée de l&#39;association</td>
+</tr>
+<tr>
+<td>Durée après la sortie</td>
+<td>24 mois</td>
+</tr>
+<tr>
+<td>Sanctions</td>
+<td>Dommages et intérêts + rachat forcé des parts</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>Activités Bel Décor existantes avant l&#39;alliance (pour Ridha), activités MEZZO GRP hors verre (pour Anthony)</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>14. CADRE DE NÉGOCIATION</h1>
+<h2>14.1 Principes de négociation</h2>
+<p>La négociation entre Ridha et Anthony repose sur les principes suivants :</p>
+<ol>
+<li><strong>Transparence totale</strong> : chaque partie communique ouvertement ses attentes, contraintes et lignes rouges</li>
+<li><strong>Recherche du gagnant-gagnant</strong> : l&#39;objectif n&#39;est pas qu&#39;une partie l&#39;emporte, mais que les deux soient satisfaites</li>
+<li><strong>Réalisme</strong> : les projections et engagements sont fondés sur des données vérifiables</li>
+<li><strong>Progressivité</strong> : la confiance se construit dans le temps — les engagements s&#39;approfondissent progressivement</li>
+<li><strong>Documentation</strong> : tout accord est formalisé par écrit</li>
+</ol>
+<h2>14.2 Plan A — Alliance paritaire 50/50 (scénario privilégié)</h2>
+<h3>Description</h3>
+<p>Les deux associés créent une SARL à parts égales, avec une gouvernance paritaire et des zones d&#39;autonomie clairement définies.</p>
+<h3>Conditions de réussite</h3>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Confiance mutuelle</td>
+<td>Les deux parties s&#39;engagent pleinement dans l&#39;alliance</td>
+</tr>
+<tr>
+<td>Complémentarité respectée</td>
+<td>Chacun reste dans son domaine d&#39;expertise</td>
+</tr>
+<tr>
+<td>Gouvernance fonctionnelle</td>
+<td>Le protocole de décision et de résolution des conflits est respecté</td>
+</tr>
+<tr>
+<td>Performance commerciale</td>
+<td>Le CA atteint les objectifs dans les délais prévus</td>
+</tr>
+</tbody></table>
+<h3>Protections intégrées</h3>
+<table>
+<thead>
+<tr>
+<th>Protection</th>
+<th>Bénéficiaire</th>
+<th>Mécanisme</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clause d&#39;agrément</td>
+<td>Ridha + Anthony</td>
+<td>Cession de parts soumise à accord unanime</td>
+</tr>
+<tr>
+<td>Droit de préemption</td>
+<td>Ridha + Anthony</td>
+<td>Priorité de rachat en cas de cession</td>
+</tr>
+<tr>
+<td>Non-concurrence</td>
+<td>Ridha + Anthony</td>
+<td>Interdiction d&#39;activité concurrente</td>
+</tr>
+<tr>
+<td>Contrat de location machines</td>
+<td>Ridha</td>
+<td>Machines protégées, loyer garanti</td>
+</tr>
+<tr>
+<td>Accès aux comptes</td>
+<td>Ridha + Anthony</td>
+<td>Transparence financière totale</td>
+</tr>
+<tr>
+<td>Exclusivité commerciale RIRO</td>
+<td>Anthony</td>
+<td>Pas de vente directe via Bel Décor</td>
+</tr>
+<tr>
+<td>Autonomie technique</td>
+<td>Ridha</td>
+<td>Pas d&#39;ingérence dans la production</td>
+</tr>
+</tbody></table>
+<h3>Répartition des bénéfices</h3>
+<table>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Priorité</th>
+<th>Bénéficiaire</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Remboursement compte courant Anthony</td>
+<td>1ʳᵉ</td>
+<td>Anthony</td>
+</tr>
+<tr>
+<td>Loyer machines</td>
+<td>Continu</td>
+<td>Ridha</td>
+</tr>
+<tr>
+<td>Constitution d&#39;une réserve légale (5 %)</td>
+<td>2ᵉ</td>
+<td>SARL</td>
+</tr>
+<tr>
+<td>Distribution des dividendes</td>
+<td>3ᵉ</td>
+<td>50 % Ridha / 50 % Anthony</td>
+</tr>
+</tbody></table>
+<h2>14.3 Plan B — Associé minoritaire sécurisé (scénario alternatif)</h2>
+<h3>Description</h3>
+<p>Si la négociation 50/50 n&#39;aboutit pas (par exemple, si Ridha insiste pour détenir la majorité), Anthony accepte une position minoritaire <strong>à condition que des protections renforcées soient mises en place</strong>.</p>
+<h3>Conditions de déclenchement</h3>
+<ul>
+<li>Ridha refuse la parité et exige une majorité (par exemple 60/40 ou 55/45)</li>
+<li>Les protections du Plan B sont jugées suffisantes par Anthony</li>
+</ul>
+<h3>Structure envisagée</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Capital</td>
+<td>60 % Ridha / 40 % Anthony (ou 55/45)</td>
+</tr>
+<tr>
+<td>Gérance</td>
+<td>Ridha (gérant)</td>
+</tr>
+<tr>
+<td>Droits de veto Anthony</td>
+<td>Sur les décisions stratégiques (liste exhaustive)</td>
+</tr>
+</tbody></table>
+<h3>Protections renforcées pour Anthony (minoritaire)</h3>
+<table>
+<thead>
+<tr>
+<th>Protection</th>
+<th>Mécanisme</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Droit de veto</td>
+<td>Sur : augmentation de capital, endettement &gt; 10 000 TND, cession d&#39;actifs, recrutement de cadres, modification des statuts, dissolution</td>
+</tr>
+<tr>
+<td>Accès intégral à l&#39;information</td>
+<td>Tous les documents financiers, commerciaux et techniques</td>
+</tr>
+<tr>
+<td>Rémunération prioritaire</td>
+<td>Remboursement du compte courant avant toute distribution</td>
+</tr>
+<tr>
+<td>Clause de sortie accélérée</td>
+<td>Droit de céder ses parts à tout moment avec un préavis de 3 mois</td>
+</tr>
+<tr>
+<td>Clause de « tag-along »</td>
+<td>Si Ridha vend ses parts, Anthony peut vendre les siennes aux mêmes conditions</td>
+</tr>
+<tr>
+<td>Clause de « drag-along »</td>
+<td>Si les deux vendent, Anthony ne peut pas bloquer la vente</td>
+</tr>
+<tr>
+<td>Audit annuel</td>
+<td>Droit de demander un audit externe aux frais de la SARL</td>
+</tr>
+<tr>
+<td>Plancher de valorisation</td>
+<td>Les parts d&#39;Anthony ne peuvent être rachetées en dessous d&#39;un multiple convenu du CA</td>
+</tr>
+</tbody></table>
+<h3>Déclencheurs de sortie du Plan B</h3>
+<p>Si l&#39;une des conditions suivantes est remplie, Anthony peut activer la clause de sortie :</p>
+<ul>
+<li>Non-respect des droits de veto par Ridha</li>
+<li>Non-remboursement du compte courant au-delà du délai convenu</li>
+<li>Manque de transparence sur les comptes</li>
+<li>Sous-performance persistante (CA &lt; 50 % de l&#39;objectif pendant 6 mois consécutifs)</li>
+</ul>
+<h2>14.4 Plan C — Sortie propre (scénario de repli)</h2>
+<h3>Description</h3>
+<p>Si aucun accord n&#39;est trouvé en négociation, ou si l&#39;alliance s&#39;avère non viable après le lancement, ce plan définit les conditions d&#39;une sortie ordonnée.</p>
+<h3>Conditions de déclenchement</h3>
+<ul>
+<li>Échec de la négociation (pas d&#39;accord sur les termes de l&#39;alliance)</li>
+<li>Blocage décisionnel persistant (après épuisement des 4 niveaux de résolution)</li>
+<li>Sous-performance prolongée sans perspective d&#39;amélioration</li>
+<li>Rupture de confiance entre les associés</li>
+</ul>
+<h3>Procédure de sortie</h3>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Délai</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. Notification</td>
+<td>J+0</td>
+<td>L&#39;associé souhaitant sortir notifie l&#39;autre par lettre recommandée</td>
+</tr>
+<tr>
+<td>2. Période de réflexion</td>
+<td>J+30</td>
+<td>Les associés tentent une dernière médiation</td>
+</tr>
+<tr>
+<td>3. Évaluation</td>
+<td>J+45</td>
+<td>Un expert indépendant valorise la société et les parts</td>
+</tr>
+<tr>
+<td>4. Offre de rachat</td>
+<td>J+60</td>
+<td>L&#39;associé restant propose un prix de rachat</td>
+</tr>
+<tr>
+<td>5. Négociation</td>
+<td>J+75</td>
+<td>Discussion sur le prix et les conditions</td>
+</tr>
+<tr>
+<td>6. Formalisation</td>
+<td>J+90</td>
+<td>Signature de l&#39;acte de cession ou dissolution</td>
+</tr>
+</tbody></table>
+<h3>Répartition des actifs en cas de dissolution</h3>
+<table>
+<thead>
+<tr>
+<th>Actif</th>
+<th>Attribution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Machines</td>
+<td>Ridha (propriétaire)</td>
+</tr>
+<tr>
+<td>Local / Bail commercial</td>
+<td>Résiliation ou transfert au nom de l&#39;associé restant</td>
+</tr>
+<tr>
+<td>Stock</td>
+<td>Réparti au prorata ou liquidé</td>
+</tr>
+<tr>
+<td>Trésorerie</td>
+<td>1ʳᵉ priorité : remboursement du compte courant d&#39;Anthony, puis répartition 50/50</td>
+</tr>
+<tr>
+<td>Marque RIRO</td>
+<td>Rachat par l&#39;associé restant ou abandon</td>
+</tr>
+<tr>
+<td>Fichier clients</td>
+<td>Propriété de la SARL — reste avec l&#39;associé qui poursuit l&#39;activité</td>
+</tr>
+<tr>
+<td>Créances</td>
+<td>Recouvrées et réparties au prorata</td>
+</tr>
+<tr>
+<td>Dettes</td>
+<td>Réparties au prorata des parts sociales</td>
+</tr>
+</tbody></table>
+<h2>14.5 Lignes rouges de Ridha</h2>
+<p>Les points suivants ont été identifiés comme non négociables pour Ridha. Toute proposition d&#39;alliance doit les respecter :</p>
+<table>
+<thead>
+<tr>
+<th>Ligne rouge</th>
+<th>Explication</th>
+<th>Impact sur la négociation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pas d&#39;apport des machines au capital</strong></td>
+<td>Les machines restent sa propriété ; il ne veut pas les perdre en cas de faillite de la SARL</td>
+<td>Le contrat de location est le mécanisme retenu</td>
+</tr>
+<tr>
+<td><strong>Autonomie technique totale</strong></td>
+<td>Il décide seul des méthodes de production, des paramètres techniques et du contrôle qualité</td>
+<td>La matrice de décision lui confère cette autonomie</td>
+</tr>
+<tr>
+<td><strong>Pas de garantie personnelle</strong></td>
+<td>Il refuse de cautionner les dettes de la SARL sur son patrimoine personnel</td>
+<td>La SARL limite la responsabilité aux apports</td>
+</tr>
+<tr>
+<td><strong>Protection de Bel Décor</strong></td>
+<td>Son activité existante ne doit pas être absorbée par RIRO</td>
+<td>Bel Décor et RIRO sont deux entités distinctes</td>
+</tr>
+<tr>
+<td><strong>Loyer des machines garanti</strong></td>
+<td>Le loyer est une charge fixe de la SARL, payé même en cas de sous-performance</td>
+<td>Inscrit dans le contrat de location</td>
+</tr>
+</tbody></table>
+<h2>14.6 Lignes rouges d&#39;Anthony</h2>
+<table>
+<thead>
+<tr>
+<th>Ligne rouge</th>
+<th>Explication</th>
+<th>Impact sur la négociation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Remboursement du compte courant</strong></td>
+<td>Les 22 000 TND doivent être remboursés en priorité</td>
+<td>Clause de remboursement prioritaire dans les statuts</td>
+</tr>
+<tr>
+<td><strong>Accès total à l&#39;information</strong></td>
+<td>Transparence complète sur les comptes, la production et les clients</td>
+<td>Droit d&#39;accès inscrit dans le pacte d&#39;associés</td>
+</tr>
+<tr>
+<td><strong>Exclusivité commerciale</strong></td>
+<td>Ridha ne doit pas vendre directement aux clients de RIRO</td>
+<td>Clause de non-concurrence et d&#39;exclusivité</td>
+</tr>
+<tr>
+<td><strong>Droit de sortie</strong></td>
+<td>Possibilité de quitter l&#39;alliance de manière ordonnée à tout moment</td>
+<td>Plans B et C prévoient les mécanismes de sortie</td>
+</tr>
+<tr>
+<td><strong>Participation aux décisions stratégiques</strong></td>
+<td>Même en minoritaire, Anthony doit pouvoir bloquer les décisions majeures</td>
+<td>Droits de veto inscrits dans les statuts</td>
+</tr>
+</tbody></table>
+<hr>
+<h1>15. STRATÉGIE DE SORTIE</h1>
+<h2>15.1 Principes directeurs</h2>
+<p>Toute stratégie de sortie doit respecter les principes suivants :</p>
+<ol>
+<li><strong>Prévisibilité</strong> : les conditions de sortie sont définies en amont, dans les statuts et le pacte d&#39;associés</li>
+<li><strong>Équité</strong> : la valorisation est réalisée par un expert indépendant, selon des critères objectifs</li>
+<li><strong>Continuité</strong> : si possible, l&#39;activité se poursuit sous la direction de l&#39;associé restant</li>
+<li><strong>Protection des créanciers</strong> : les dettes de la société sont honorées avant toute distribution</li>
+<li><strong>Respect des engagements</strong> : les contrats en cours avec les clients sont exécutés</li>
+</ol>
+<h2>15.2 Scénarios de sortie</h2>
+<h3>Scénario 1 : Rachat de parts par l&#39;un des associés</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Déclencheur</td>
+<td>Volonté de sortie d&#39;un associé, désaccord persistant</td>
+</tr>
+<tr>
+<td>Mécanisme</td>
+<td>L&#39;associé restant rachète les parts du sortant</td>
+</tr>
+<tr>
+<td>Valorisation</td>
+<td>Expert indépendant, méthode mixte (actif net + multiple du CA)</td>
+</tr>
+<tr>
+<td>Financement</td>
+<td>Fonds propres ou échelonnement sur 12–24 mois</td>
+</tr>
+<tr>
+<td>Non-concurrence</td>
+<td>Le sortant respecte la clause de non-concurrence (24 mois)</td>
+</tr>
+</tbody></table>
+<h3>Scénario 2 : Cession à un tiers</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Déclencheur</td>
+<td>Aucun des associés ne souhaite racheter les parts du sortant</td>
+</tr>
+<tr>
+<td>Mécanisme</td>
+<td>Cession à un tiers, soumise à la clause d&#39;agrément</td>
+</tr>
+<tr>
+<td>Droit de préemption</td>
+<td>L&#39;associé restant a priorité pour racheter aux mêmes conditions</td>
+</tr>
+<tr>
+<td>Clause de tag-along</td>
+<td>L&#39;associé restant peut vendre ses parts aux mêmes conditions</td>
+</tr>
+<tr>
+<td>Valorisation</td>
+<td>Expert indépendant</td>
+</tr>
+</tbody></table>
+<h3>Scénario 3 : Dissolution amiable</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Déclencheur</td>
+<td>Accord unanime des associés pour mettre fin à l&#39;activité</td>
+</tr>
+<tr>
+<td>Mécanisme</td>
+<td>Liquidation amiable conformément au CSC</td>
+</tr>
+<tr>
+<td>Liquidateur</td>
+<td>Désigné d&#39;un commun accord (ou par le tribunal en cas de désaccord)</td>
+</tr>
+<tr>
+<td>Répartition</td>
+<td>Voir tableau de répartition des actifs (section 14.4)</td>
+</tr>
+</tbody></table>
+<h3>Scénario 4 : Clause « shotgun »</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Détail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Déclencheur</td>
+<td>Blocage décisionnel persistant après épuisement des voies de résolution</td>
+</tr>
+<tr>
+<td>Mécanisme</td>
+<td>Un associé offre de racheter les parts de l&#39;autre à un prix qu&#39;il fixe. L&#39;autre associé a 30 jours pour : (a) accepter et vendre, ou (b) retourner l&#39;offre et racheter les parts de l&#39;offreur au même prix</td>
+</tr>
+<tr>
+<td>Avantage</td>
+<td>Force une résolution rapide et équitable — l&#39;offreur est incité à proposer un prix juste car il peut se retrouver vendeur</td>
+</tr>
+<tr>
+<td>Délai total</td>
+<td>45 jours maximum</td>
+</tr>
+</tbody></table>
+<h2>15.3 Méthodes de valorisation</h2>
+<p>La valorisation des parts sociales, en cas de sortie, est réalisée par un expert-comptable indépendant agréé, selon la méthodologie suivante :</p>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Pondération</th>
+<th>Formule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Actif net réévalué</td>
+<td>40 %</td>
+<td>Actifs de la SARL – Dettes (hors machines de Ridha)</td>
+</tr>
+<tr>
+<td>Multiple du chiffre d&#39;affaires</td>
+<td>30 %</td>
+<td>CA des 12 derniers mois × coefficient sectoriel (0,5–1,0)</td>
+</tr>
+<tr>
+<td>Capacité bénéficiaire</td>
+<td>30 %</td>
+<td>Résultat net moyen des 3 derniers exercices × 5</td>
+</tr>
+</tbody></table>
+<p><strong>Plancher de valorisation</strong> : En aucun cas la valorisation des parts d&#39;Anthony ne peut être inférieure au solde de son compte courant d&#39;associé majoré de 10 %.</p>
+<h2>15.4 Calendrier de la sortie</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Durée</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Notification</td>
+<td>J+0</td>
+<td>Lettre recommandée de l&#39;associé sortant</td>
+</tr>
+<tr>
+<td>Médiation de dernière chance</td>
+<td>30 jours</td>
+<td>Tentative de résolution amiable</td>
+</tr>
+<tr>
+<td>Désignation de l&#39;expert</td>
+<td>15 jours</td>
+<td>Choix conjoint ou désignation judiciaire</td>
+</tr>
+<tr>
+<td>Évaluation</td>
+<td>30 jours</td>
+<td>Rapport d&#39;évaluation</td>
+</tr>
+<tr>
+<td>Négociation du prix</td>
+<td>15 jours</td>
+<td>Discussion sur la base du rapport</td>
+</tr>
+<tr>
+<td>Signature</td>
+<td>15 jours</td>
+<td>Acte de cession notarié</td>
+</tr>
+<tr>
+<td>Exécution</td>
+<td>30 jours</td>
+<td>Paiement, transfert, formalités légales</td>
+</tr>
+<tr>
+<td><strong>Durée totale estimée</strong></td>
+<td><strong>~4,5 mois</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h1>16. ANNEXES</h1>
+<h2>Annexe A : Glossaire</h2>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Définition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>SARL</strong></td>
+<td>Société à Responsabilité Limitée — forme juridique limitant la responsabilité des associés à leurs apports</td>
+</tr>
+<tr>
+<td><strong>CSC</strong></td>
+<td>Code des Sociétés Commerciales — Loi n° 2000-93 du 3 novembre 2000, cadre juridique des sociétés en Tunisie</td>
+</tr>
+<tr>
+<td><strong>TND</strong></td>
+<td>Dinar Tunisien — monnaie nationale de la République Tunisienne</td>
+</tr>
+<tr>
+<td><strong>Compte courant d&#39;associé</strong></td>
+<td>Prêt consenti par un associé à la société, distinct de l&#39;apport en capital</td>
+</tr>
+<tr>
+<td><strong>Clause d&#39;agrément</strong></td>
+<td>Disposition statutaire subordonnant la cession de parts à l&#39;accord des associés existants</td>
+</tr>
+<tr>
+<td><strong>Droit de préemption</strong></td>
+<td>Droit prioritaire de rachat des parts offertes à un tiers</td>
+</tr>
+<tr>
+<td><strong>Clause shotgun</strong></td>
+<td>Mécanisme de rachat croisé obligatoire en cas de blocage</td>
+</tr>
+<tr>
+<td><strong>Tag-along</strong></td>
+<td>Droit de sortie conjointe — le minoritaire peut vendre ses parts aux mêmes conditions que le majoritaire</td>
+</tr>
+<tr>
+<td><strong>Drag-along</strong></td>
+<td>Obligation de sortie conjointe — le majoritaire peut forcer le minoritaire à vendre</td>
+</tr>
+<tr>
+<td><strong>Point mort</strong></td>
+<td>Niveau d&#39;activité à partir duquel les recettes couvrent l&#39;ensemble des charges</td>
+</tr>
+<tr>
+<td><strong>TAM/SAM/SOM</strong></td>
+<td>Niveaux de dimensionnement du marché : total, accessible, captable</td>
+</tr>
+<tr>
+<td><strong>NPS</strong></td>
+<td>Net Promoter Score — indicateur de satisfaction et de recommandation client</td>
+</tr>
+<tr>
+<td><strong>INNORPI</strong></td>
+<td>Institut National de la Normalisation et de la Propriété Intellectuelle — organisme tunisien de propriété intellectuelle</td>
+</tr>
+<tr>
+<td><strong>CMAT</strong></td>
+<td>Centre de Médiation et d&#39;Arbitrage de Tunis</td>
+</tr>
+<tr>
+<td><strong>ROI</strong></td>
+<td>Return on Investment — retour sur investissement</td>
+</tr>
+<tr>
+<td><strong>VNA</strong></td>
+<td>Valeur Nette Actualisée — valeur actuelle des flux de trésorerie futurs</td>
+</tr>
+<tr>
+<td><strong>GD</strong></td>
+<td>Grande Distribution</td>
+</tr>
+<tr>
+<td><strong>PI</strong></td>
+<td>Propriété Intellectuelle</td>
+</tr>
+<tr>
+<td><strong>KPI</strong></td>
+<td>Key Performance Indicator — indicateur clé de performance</td>
+</tr>
+</tbody></table>
+<h2>Annexe B : Hypothèses financières</h2>
+<h3>Hypothèses de base</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Hypothèse retenue</th>
+<th>Source/Justification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prix de vente moyen</td>
+<td>1,50 TND/pièce</td>
+<td>Moyenne pondérée des 4 segments</td>
+</tr>
+<tr>
+<td>Coût de revient moyen</td>
+<td>0,85 TND/pièce</td>
+<td>Décomposition détaillée (section 8.2)</td>
+</tr>
+<tr>
+<td>Marge brute moyenne</td>
+<td>43 %</td>
+<td>Calcul sur prix et coût moyens</td>
+</tr>
+<tr>
+<td>Taux de rebut</td>
+<td>3 % (An 1), 2 % (An 2+)</td>
+<td>Standard sectoriel</td>
+</tr>
+<tr>
+<td>Inflation annuelle</td>
+<td>7 %</td>
+<td>Tendance macroéconomique tunisienne</td>
+</tr>
+<tr>
+<td>Croissance des charges</td>
+<td>5 %/an</td>
+<td>Inférieur à l&#39;inflation (gains d&#39;efficacité)</td>
+</tr>
+<tr>
+<td>Croissance du CA</td>
+<td>50 % An 2, 30 % An 3, 20 % An 4-5</td>
+<td>Hypothèse conservatrice</td>
+</tr>
+<tr>
+<td>Taux d&#39;actualisation</td>
+<td>12 %</td>
+<td>Prime de risque pays + risque PME</td>
+</tr>
+<tr>
+<td>Jours ouvrés/mois</td>
+<td>22 jours</td>
+<td>Standard tunisien</td>
+</tr>
+<tr>
+<td>Heures de production/jour</td>
+<td>8 heures</td>
+<td>Un poste de travail</td>
+</tr>
+<tr>
+<td>Capacité/heure</td>
+<td>250 pièces</td>
+<td>Estimation technique (Ridha)</td>
+</tr>
+</tbody></table>
+<h3>Hypothèses de sensibilité</h3>
+<table>
+<thead>
+<tr>
+<th>Scénario</th>
+<th>CA An 1</th>
+<th>CA An 2</th>
+<th>Résultat net An 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Optimiste</strong> (+20 %)</td>
+<td>260 000 TND</td>
+<td>480 000 TND</td>
+<td>86 000 TND</td>
+</tr>
+<tr>
+<td><strong>Base</strong></td>
+<td>216 000 TND</td>
+<td>400 000 TND</td>
+<td>65 000 TND</td>
+</tr>
+<tr>
+<td><strong>Pessimiste</strong> (-20 %)</td>
+<td>173 000 TND</td>
+<td>320 000 TND</td>
+<td>38 000 TND</td>
+</tr>
+<tr>
+<td><strong>Critique</strong> (-40 %)</td>
+<td>130 000 TND</td>
+<td>240 000 TND</td>
+<td>12 000 TND</td>
+</tr>
+</tbody></table>
+<p><strong>Seuil de viabilité</strong> : le modèle reste viable (résultat net positif) même dans le scénario critique, grâce à la structure de coûts légère et au point mort bas.</p>
+<h2>Annexe C : Charte de gouvernance</h2>
+<h3>Préambule</h3>
+<p>Les associés fondateurs de RIRO SARL s&#39;engagent à respecter la présente charte de gouvernance, qui complète les statuts de la société et le pacte d&#39;associés.</p>
+<h3>Article 1 : Respect mutuel</h3>
+<p>Les associés s&#39;engagent à maintenir en toute circonstance une relation fondée sur le respect mutuel, la courtoisie professionnelle et la bonne foi. Les désaccords sont traités de manière constructive, en se concentrant sur les intérêts de la société.</p>
+<h3>Article 2 : Transparence</h3>
+<p>Chaque associé s&#39;engage à communiquer à l&#39;autre, sans délai et sans filtre, toute information susceptible d&#39;affecter la marche de la société, sa situation financière ou sa réputation.</p>
+<h3>Article 3 : Séparation des pouvoirs</h3>
+<p>Les domaines d&#39;expertise de chaque associé sont respectés. L&#39;associé technique ne s&#39;immisce pas dans les décisions commerciales, et l&#39;associé commercial ne s&#39;immisce pas dans les décisions techniques, sauf en cas de nécessité dûment justifiée et après concertation.</p>
+<h3>Article 4 : Engagement personnel</h3>
+<p>Chaque associé consacre à RIRO le temps et l&#39;énergie nécessaires à la réussite du projet. Toute activité parallèle susceptible de détourner l&#39;attention ou les ressources de l&#39;un des associés est communiquée à l&#39;autre et fait l&#39;objet d&#39;une discussion.</p>
+<h3>Article 5 : Confidentialité</h3>
+<p>Les informations internes à RIRO (stratégie, finances, clients, techniques) sont strictement confidentielles. Aucun associé ne les communique à des tiers sans l&#39;accord exprès de l&#39;autre.</p>
+<h3>Article 6 : Évaluation régulière</h3>
+<p>Les associés procèdent à une évaluation semestrielle de leur collaboration, en toute honnêteté, afin d&#39;identifier les points de friction potentiels et d&#39;y remédier avant qu&#39;ils ne deviennent des problèmes.</p>
+<h3>Article 7 : Engagement de médiation</h3>
+<p>Avant tout recours contentieux, les associés s&#39;engagent à épuiser les voies de médiation prévues dans le protocole de résolution des conflits.</p>
+<h2>Annexe D : Checklist pré-lancement</h2>
+<h3>Phase juridique et administrative</h3>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Responsable</th>
+<th>Statut</th>
+<th>Échéance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rédaction des statuts SARL</td>
+<td>Conseil juridique</td>
+<td>☐ À faire</td>
+<td>S+1</td>
+</tr>
+<tr>
+<td>Signature des statuts chez le notaire</td>
+<td>Ridha + Anthony</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Dépôt au Registre du Commerce</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Obtention du numéro fiscal</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Ouverture du compte bancaire SARL</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Rédaction du contrat de location machines</td>
+<td>Conseil juridique</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Signature du bail commercial</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Rédaction du pacte d&#39;associés</td>
+<td>Conseil juridique</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Dépôt de la marque RIRO (INNORPI)</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Souscription assurance local + machines</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+</tbody></table>
+<h3>Phase opérationnelle</h3>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Responsable</th>
+<th>Statut</th>
+<th>Échéance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Transfert et installation des machines</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Calibrage et tests de production</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Aménagement du local de production</td>
+<td>Ridha + Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Aménagement du showroom</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Recrutement des opérateurs</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Achat du stock initial (encres, consommables)</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Mise en place du workflow de production</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+5</td>
+</tr>
+<tr>
+<td>Production des échantillons</td>
+<td>Ridha</td>
+<td>☐ À faire</td>
+<td>S+5</td>
+</tr>
+</tbody></table>
+<h3>Phase commerciale</h3>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Responsable</th>
+<th>Statut</th>
+<th>Échéance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Création de l&#39;identité visuelle RIRO</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Conception du catalogue produits</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+5</td>
+</tr>
+<tr>
+<td>Création du site web / page réseaux sociaux</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Établissement de la grille tarifaire</td>
+<td>Anthony + Ridha</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Liste de prospects prioritaires (50 contacts)</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Prise de rendez-vous de prospection</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+5</td>
+</tr>
+<tr>
+<td>Premier mailing commercial</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+5</td>
+</tr>
+<tr>
+<td>Organisation d&#39;un événement de lancement</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+6</td>
+</tr>
+</tbody></table>
+<h3>Phase financière</h3>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Responsable</th>
+<th>Statut</th>
+<th>Échéance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Versement du capital social</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+2</td>
+</tr>
+<tr>
+<td>Versement en compte courant d&#39;associé</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Choix du cabinet comptable</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+3</td>
+</tr>
+<tr>
+<td>Mise en place de la comptabilité</td>
+<td>Comptable</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Création du tableau de bord financier</td>
+<td>Anthony</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+<tr>
+<td>Définition du budget mensuel</td>
+<td>Anthony + Ridha</td>
+<td>☐ À faire</td>
+<td>S+4</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>SIGNATURES</h2>
+<p>Le présent document a été établi en deux exemplaires originaux, un pour chaque associé.</p>
+<br>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ridha</strong></td>
+<td><strong>Anthony</strong></td>
+</tr>
+<tr>
+<td>Bel Décor</td>
+<td>MEZZO GRP</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_________________________</td>
+<td>_________________________</td>
+</tr>
+<tr>
+<td>Date : __________________</td>
+<td>Date : __________________</td>
+</tr>
+<tr>
+<td>Lieu : __________________</td>
+<td>Lieu : __________________</td>
+</tr>
+</tbody></table>
+<br>
+
+<hr>
+<p><em>RIRO — Alliance Commerciale — Document Confidentiel</em>
+<em>Version 1.0 — Mars 2026</em>
+<em>Tous droits réservés</em></p>
 
 </div>
 </body>
